@@ -4,7 +4,7 @@
 
 /*점검 기준 : 최소 9자리 이상 되어야 하며 숫자,대문자,소문자,특수문자 최소 1개 포함*/
 #define SUCCESS 6
-#define LCREDIT "#lcredit=-1\n"
+#define LCREDIT "lcredit=-1\n"
 #define UCREDIT "ucredit=-1\n"
 #define DCREDIT "dcredit=-1\n"
 #define OCREDIT "ocredit=-1\n"
