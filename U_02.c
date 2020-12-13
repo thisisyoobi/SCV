@@ -1,8 +1,8 @@
+/*U_02 password complexity setting*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-/*점검 기준 : 최소 8자리 이상 되어야 하며 숫자,대문자,소문자,특수문자 최소 1개 포함*/
 #define SUCCESS 6
 #define LCREDIT "lcredit=-1\n"
 #define UCREDIT "ucredit=-1\n"
