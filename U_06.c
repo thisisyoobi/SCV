@@ -15,16 +15,16 @@ char *DeleteSpace(char s[]);
 void U_06()
 {
 	if( FileOpen( "/etc/pam.d/su", PAM_MODULE, PAM_MODE) == FALSE ) {
-		printf("[U-02] root 계정 su 제한 (하) : 취약\n");
+		printf("[U-06] root 계정 su 제한 (하) : 취약\n");
 		exit(0);
 	}
 
 	if( FileOpen( "/etc/group", "wheel", GROUP_MODE) == FALSE ) {
-		printf("[U-02] root 계정 su 제한 (하) : 취약\n");
+		printf("[U-06] root 계정 su 제한 (하) : 취약\n");
                 exit(0);
 	}
 	
-	printf("[U-02] root 계정 su 제한 (하) : 양호\n");
+	printf("[U-06] root 계정 su 제한 (하) : 양호\n");
 }
 
 int FileOpen(char fname[], char s[], int mode)
