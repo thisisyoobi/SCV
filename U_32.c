@@ -15,7 +15,7 @@ void U_32() {
 	int ret;
 
 	system("grep -r 'UMASK=022' /etc/profile > output32.txt");
-	if ((fp = fopen("output32.txt", "w")) == NULL) {
+	if ((fp = fopen("output32.txt", "r")) == NULL) {
 		printf("open error!\n");
 		exit(1);
 	}
