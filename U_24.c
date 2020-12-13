@@ -24,9 +24,9 @@ void U_24() {
 	fgets(count1, sizeof(count1), fp);
 	ret1 = strcmp(count1, setting);
 	if (ret1 == 10)
-		printf("[U-24] world writable 파일 점검(상) : 양호\n");
+		printf("[U-24] NFS 서비스 비활성화(상) : 양호\n");
 	else
-		printf("[U-24] world writable 파일 점검(상) : 취약\n");
+		printf("[U-24] NFS 서비스 비활성화(상) : 취약\n");
 
 	system("rm -f output24.txt");
 }
