@@ -26,11 +26,11 @@ void U_05()
 			i++;
 		}
 		if(buf[i] == '0') {
-			printf("[U-02] root 이외의 UID가 '0' 금지 (중) : 취약\n");               
+			printf("[U-05] root 이외의 UID가 '0' 금지 (중) : 취약\n");               
 			fclose(fp);                        
 			exit(0);                        
 		}
 		check = 0;
 	}
-	printf("[U-02] root 이외의 UID가 '0' 금지 (중) : 양호\n");
+	printf("[U-05] root 이외의 UID가 '0' 금지 (중) : 양호\n");
 }
