@@ -33,6 +33,7 @@ void U_11()
 	}
 	else
 		printf("[U-11] 관리자 그룹에 최소한의 계정 포함 (하) : 취약\n");
+	fclose(fp);
 }
 
 int checkRoot(char s[], int i)
