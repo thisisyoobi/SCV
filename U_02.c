@@ -1,4 +1,3 @@
-/*U_02 password complexity setting*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -20,8 +19,8 @@ void U_02()
 	FILE* fp;
 
 	if ((fp = fopen("/etc/security/pwquality.conf", "r")) == NULL) {
-		printf("File open error\n");
-		exit(1);
+		printf("[U-02] 패스워드 복잡성 설정 (상) : 점검 오류\n");
+		return;
 	}
 
 	while (fgets(buf, sizeof(buf), fp)) {
