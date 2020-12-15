@@ -1,36 +1,38 @@
-/*U_05 Check if UID other than root is '0'*/
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <unistd.h>
 
-#define LINE 512
-
-void U_05()
+void U_5()
 {
 	FILE* fp;
-	char buf[LINE];
+	char c;
 	int check = 0;
-
-	if((fp = fopen("/etc/passwd", "r")) == NULL) {
-                printf("File open error\n");
-                exit(1);
-        }
-
-	fgets(buf, sizeof(buf), fp);
-	while( fgets(buf, sizeof(buf), fp) ) {
-		int i = 0;
-		while (check != 2) {
-			if(buf[i] == ':') {
-				check++;
-			}
-			i++;
-		}
-		if(buf[i] == '0') {
-			printf("[U-05] root 이외의 UID가 '0' 금지 (중) : 취약\n");               
-			fclose(fp);                        
-			exit(0);                        
-		}
-		check = 0;
+	
+	if( (fp = popen( "echo $PATH", "r" )) == NULL ) {
+		printf("[U-5] root 홈, 패스 디렉터리 권한 및 패스 설정 (상) : 점검 오류\n");
+		return;
 	}
-	printf("[U-05] root 이외의 UID가 '0' 금지 (중) : 양호\n");
+
+	do {
+		c = fgetc(fp);
+		if( c == '.') {
+			printf("[U-5] root 홈, 패스 디렉터리 권한 및 패스 설정 (상) : 취약\n");
+			pclose(fp);
+			return;
+		}
+		else if( c == ':')
+			check++;
+		else
+			check = 0;
+
+		if( check == 2 ) {
+			printf("[U-5] root 홈, 패스 디렉터리 권한 및 패스 설정 (상) : 취약\n");
+			pclose(fp);
+			return;
+		}
+	} while( c != EOF );
+ 
+	printf("[U-5] root 홈, 패스 디렉터리 권한 및 패스 설정 (상) : 양호\n");
+	pclose(fp);
 }
