@@ -10,8 +10,8 @@ void U_16()
 	int check = 0;
 	
 	if( (fp = popen( "echo $PATH", "r" )) == NULL ) {
-		printf("popen error\n");
-		exit(1);
+		printf("[U-16] root 홈, 패스 디렉터리 권한 및 패스 설정 (상) : 점검 오류\n");
+		return;
 	}
 
 	do {
@@ -19,7 +19,7 @@ void U_16()
 		if( c == '.') {
 			printf("[U-16] root 홈, 패스 디렉터리 권한 및 패스 설정 (상) : 취약\n");
 			pclose(fp);
-			exit(0);
+			return;
 		}
 		else if( c == ':')
 			check++;
@@ -29,7 +29,7 @@ void U_16()
 		if( check == 2 ) {
 			printf("[U-16] root 홈, 패스 디렉터리 권한 및 패스 설정 (상) : 취약\n");
 			pclose(fp);
-			exit(0);
+			return;
 		}
 	} while( c != EOF );
  
