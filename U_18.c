@@ -8,6 +8,7 @@
 #define SUCCESS 2
 
 char *DeleteSpace(char s[]);
+
 void U_18()
 {
 	FILE *deny_fp, *allow_fp;
