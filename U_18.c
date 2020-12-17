@@ -6,6 +6,7 @@
 #define DENY "ALL:ALL"
 #define ALLOW "sshd:192.168.0.148,192.168.0.6"
 #define SUCCESS 2
+
 char *DeleteSpace(char s[]);
 void U_18()
 {
