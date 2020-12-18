@@ -6,8 +6,8 @@
 #include <fcntl.h>
 #define BUF_SIZE 1024
 
-/* Á¡°Ë±âÁØ : world writable ÆÄÀÏ Á¡°Ë 
-			  world writable file Á¸ÀçÇÏ¸é Ãë¾à, ¾øÀ¸¸é ¾çÈ£ */
+/* ì ê²€ê¸°ì¤€ : world writable íŒŒì¼ ì ê²€ 
+			  world writable file ì¡´ì¬í•˜ë©´ ì·¨ì•½, ì—†ìœ¼ë©´ ì–‘í˜¸. */
 
 void U_15() {
 	FILE* fp;
@@ -19,15 +19,15 @@ void U_15() {
 	system("find /dev -type f -exec ls -l {} \\; | wc -l > output15.txt");
 
 	if ((fp = fopen("output15.txt", "r")) == NULL) {
-		printf("[U-15] world writable ÆÄÀÏ Á¡°Ë(»ó) : Á¡°Ë ¿À·ù\n");
+		printf("[U-15] world writable íŒŒì¼ ì ê²€(ìƒ) : ì ê²€ ì˜¤ë¥˜\n");
 		return;
 	}
 	fgets(count1, sizeof(count1), fp);
 	ret1 = strcmp(count1, setting);
 	if (ret1 == 10)
-		printf("[U-15] world writable ÆÄÀÏ Á¡°Ë(»ó) : ¾çÈ£\n");
+		printf("[U-15] world writable íŒŒì¼ ì ê²€(ìƒ) : ì–‘í˜¸\n");
 	else
-		printf("[U-15] world writable ÆÄÀÏ Á¡°Ë(»ó) : Ãë¾à\n");
+		printf("[U-15] world writable íŒŒì¼ ì ê²€(ìƒ) : ì·¨ì•½\n");
 
 	system("rm -f output15.txt");
 }
