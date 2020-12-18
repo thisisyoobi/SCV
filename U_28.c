@@ -6,20 +6,20 @@
 #include <fcntl.h>
 #define BUF_SIZE 1024
 
-/* Á¡°Ë±âÁØ : NIS ¼­ºñ½º°¡ È°¼ºÈ­ µÇ¾îÀÖ´ÂÁö µÇ¾îÀÖÁö ¾Ê´ÂÁö Á¡°Ë 
-				NIS ¼­ºñ½º È°¼ºÈ­½Ã Ãë¾à, ºñÈ°¼ºÈ­½Ã ¾çÈ£*/
+/* ì ê²€ê¸°ì¤€ : NIS ì„œë¹„ìŠ¤ê°€ í™œì„±í™” ë˜ì–´ìˆëŠ”ì§€ ë˜ì–´ìˆì§€ ì•ŠëŠ”ì§€ ì ê²€ 
+				NIS ì„œë¹„ìŠ¤ í™œì„±í™”ì‹œ ì·¨ì•½, ë¹„í™œì„±í™”ì‹œ ì–‘í˜¸.*/
 
 void U_28() {
 	FILE* fp;
 	int n1;
 	char count1[BUF_SIZE];
-	char setting[BUF_SIZE] = "2";  /*( grep°ú system call¿¡ÀÇÇØ¼­ 2°¡ default )*/
+	char setting[BUF_SIZE] = "2";  /*( grepê³¼ system callì—ì˜í•´ì„œ 2ê°€ default )*/
 	int ret1;
 
 	system("ps -ef | egrep \"ypserv|ypbind|ypxfrd|rpc.yppasswdd|rpc.ypupdated\" | wc -l > output28.txt");
 
 	if ((fp = fopen("output28.txt", "r")) == NULL) {
-		printf("[U-28] NIS, NIS+ Á¡°Ë(»ó) : Á¡°Ë ¿À·ù\n");
+		printf("[U-28] NIS, NIS+ ì ê²€(ìƒ) : ì ê²€ ì˜¤ë¥˜\n");
 		return;
 	}
 
@@ -27,9 +27,9 @@ void U_28() {
 	ret1 = strcmp(count1, setting);
 
 	if (ret1 == 10)
-		printf("[U-28] NIS, NIS+ Á¡°Ë(»ó) : ¾çÈ£\n");
+		printf("[U-28] NIS, NIS+ ì ê²€(ìƒ) : ì–‘í˜¸\n");
 	else
-		printf("[U-28] NIS, NIS+ Á¡°Ë(»ó) : Ãë¾à\n");
+		printf("[U-28] NIS, NIS+ ì ê²€(ìƒ) : ì·¨ì•½\n");
 
 	system("rm -f output28.txt");
 

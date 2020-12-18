@@ -10,19 +10,19 @@ void U_54()
 	char buf[LINE];
 	
 	if((fp =fopen("/etc/profile", "r")) == NULL){
-		printf("[U-54]Session Timeout 설정\n");
+		printf("[U-54]Session Timeout 설정(하) : 점검 오류\n");
 		return;
 	}
 	
 	while(fgets(buf, sizeof(buf), fp)){
 		if(strncmp(SESSION_TIMEOUT, buf, 5) ==0){
-			printf("[U-54] Session Timeout 설정 (중) : 양호\n");
+			printf("[U-54] Session Timeout 설정 (하) : 양호\n");
 			fclose(fp);
 			exit(0);
 		
 		}
 	}
-	printf("[U-54] Session Timeout 설정 (중) : 취약\n");
+	printf("[U-54] Session Timeout 설정 (하) : 취약\n");
 }
 
 

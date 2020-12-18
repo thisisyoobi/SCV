@@ -6,8 +6,8 @@
 #include <fcntl.h>
 #define BUF_SIZE 1024
 
-/* Á¡°Ë±âÁØ : ftp °èÁ¤ shell Á¦ÇÑ Á¡°Ë 
-				ftp °èÁ¤¿¡´ëÇÑ /bin/false ºÎ¿©µÇ¾úÀ»½Ã ¾çÈ£, µÇÁö¾ÊÀ¸¸é Ãë¾à */
+/* ì ê²€ê¸°ì¤€ : ftp ê³„ì • shell ì œí•œ ì ê²€ 
+				ftp ê³„ì •ì—ëŒ€í•œ /bin/false ë¶€ì—¬ë˜ì—ˆì„ì‹œ ì–‘í˜¸, ë˜ì§€ì•Šìœ¼ë©´ ì·¨ì•½. */
 
 void U_63() {
 	FILE* fp1, * fp2;
@@ -16,29 +16,29 @@ void U_63() {
 	int ret;
 	system("grep -r 'ftp' /etc/passwd | wc -l > output63_1.txt");
 	if ((fp1 = fopen("output63_1.txt", "r")) == NULL) {
-		printf("[U-63] ftp °èÁ¤ shell Á¦ÇÑ(Áß) : Á¡°Ë ¿À·ù\n");
+		printf("[U-63] ftp ê³„ì • shell ì œí•œ(ì¤‘) : ì ê²€ ì˜¤ë¥˜\n");
 		return;
 	}
 	fgets(arr, sizeof(arr), fp1);
 	ret = strcmp(arr, setting);
-	// output63_1ÀÇ °á°ú°¡ 0ÀÌ¸é ftp¼­ºñ½º ÀÛµ¿µÇÁö ¾Ê´Â°Í -> ¾çÈ£ printÈÄ Á¾·á 
+	// output63_1ì˜ ê²°ê³¼ê°€ 0ì´ë©´ ftpì„œë¹„ìŠ¤ ì‘ë™ë˜ì§€ ì•ŠëŠ”ê²ƒ -> ì–‘í˜¸ printí›„ ì¢…ë£Œ 
 	if (ret == 10) {
-		printf("[U-63] ftp °èÁ¤ shell Á¦ÇÑ(Áß) : ¾çÈ£\n");
+		printf("[U-63] ftp ê³„ì • shell ì œí•œ(ì¤‘) : ì–‘í˜¸\n");
 		system("rm -f output63_1.txt");
 	}
 	else {
 		system("grep -r 'ftp:x:500:100:Anonymous FTP USER:/var/ftp:/bin/false' /etc/passwd | wc -l > output63_2.txt");
-		// °á°ú°¡ 0ÀÌ¸é false µÇÀÖÁö ¾Ê´Ù -> Ãë¾à  .. 1ÀÌ¸é ¹İ´ë·Î, ¾çÈ£
+		// ê²°ê³¼ê°€ 0ì´ë©´ false ë˜ìˆì§€ ì•Šë‹¤ -> ì·¨ì•½  .. 1ì´ë©´ ë°˜ëŒ€ë¡œ, ì–‘í˜¸
 		if ((fp2 = fopen("output63_2.txt", "r")) == NULL) {
-			printf("[U-63] ftp °èÁ¤ shell Á¦ÇÑ(Áß) : Á¡°Ë ¿À·ù\n");
+			printf("[U-63] ftp ê³„ì • shell ì œí•œ(ì¤‘) : ì ê²€ ì˜¤ë¥˜\n");
 			return;
 		}
 		fgets(arr, sizeof(arr), fp2);
 		ret = strcmp(arr, setting);
 		if (ret == 10)
-			printf("[U-63] ftp °èÁ¤ shell Á¦ÇÑ(Áß) : Ãë¾à\n");
+			printf("[U-63] ftp ê³„ì • shell ì œí•œ(ì¤‘) : ì·¨ì•½\n");
 		else
-			printf("[U-63] ftp °èÁ¤ shell Á¦ÇÑ(Áß) : ¾çÈ£\n");
+			printf("[U-63] ftp ê³„ì • shell ì œí•œ(ì¤‘) : ì–‘í˜¸\n");
 
 		system("rm -f output63_2.txt");
 	}
