@@ -6,8 +6,8 @@
 #include <fcntl.h>
 #define BUF_SIZE 1024
 
-/* Á¡°Ë±âÁØ : ½Ã½ºÅÛ UMASK °ªÀÌ 022 ÀÌ»óÀÎÁö ¾Æ´ÑÁö Á¡°Ë 
-				UMASK °ªÀÌ 022 ÀÌ»óÀÌ¸é ¾çÈ£, ¹Ì¸¸ÀÌ¸¸ Ãë¾à */
+/* ì ê²€ê¸°ì¤€ : ì‹œìŠ¤í…œ UMASK ê°’ì´ 022 ì´ìƒì¸ì§€ ì•„ë‹Œì§€ ì ê²€ 
+				UMASK ê°’ì´ 022 ì´ìƒì´ë©´ ì–‘í˜¸, ë¯¸ë§Œì´ë§Œ ì·¨ì•½. */
 
 void U_57() {
 	FILE* fp;
@@ -17,15 +17,15 @@ void U_57() {
 
 	system("grep -r 'UMASK=022' /etc/profile > output57.txt");
 	if ((fp = fopen("output57.txt", "r")) == NULL) {
-		printf("[U-57] UMASK ¼³Á¤ °ü¸®(Áß) : Á¡°Ë ¿À·ù\n");
+		printf("[U-57] UMASK ì„¤ì • ê´€ë¦¬(ì¤‘) : ì ê²€ ì˜¤ë¥˜\n");
 		return;
 	}
 	fgets(arr, sizeof(arr), fp);
 	ret = strcmp(arr, setting);
 	if (ret > 0)
-		printf("[U-57] UMASK ¼³Á¤ °ü¸®(Áß) : ¾çÈ£\n");
+		printf("[U-57] UMASK ì„¤ì • ê´€ë¦¬(ì¤‘) : ì–‘í˜¸\n");
 	else
-		printf("[U-57] UMASK ¼³Á¤ °ü¸®(Áß) : Ãë¾à\n");
+		printf("[U-57] UMASK ì„¤ì • ê´€ë¦¬(ì¤‘) : ì·¨ì•½\n");
 
 	system("rm -f output57.txt");
 }
