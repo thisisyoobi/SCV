@@ -16,13 +16,13 @@ void U_54()
 	
 	while(fgets(buf, sizeof(buf), fp)){
 		if(strncmp(SESSION_TIMEOUT, buf, 5) ==0){
-			printf("[U-54] Session Timeout 설정 (중) : 양호\n");
+			printf("[U-54] Session Timeout 설정 (하) : 양호\n");
 			fclose(fp);
 			exit(0);
 		
 		}
 	}
-	printf("[U-54] Session Timeout 설정 (중) : 취약\n");
+	printf("[U-54] Session Timeout 설정 (하) : 취약\n");
 }
 
 
