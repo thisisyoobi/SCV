@@ -5,6 +5,7 @@
 
 void U_12()
 {
+	FILE *fp;
 	struct stat buf;
 	if((fp =fopen("/etc/services", "r")) == NULL){
 		printf("[U-12] /etc/services 파일 소유자 및 권한 설정(상): 점검 오류\n");
