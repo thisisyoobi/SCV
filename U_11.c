@@ -2,7 +2,7 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 /* /etc/syslog.conf 파일 소유자 및 권한 설정 */
-
+// commit change1
 void U_11()
 {
 	FILE *fp;
