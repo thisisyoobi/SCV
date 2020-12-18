@@ -5,6 +5,7 @@
 
 void U_10()
 {
+	FILE *fp; //변수 선언
 	struct stat buf;
 	
 	if((fp =fopen("/etc/inetd.conf", "r")) == NULL){
