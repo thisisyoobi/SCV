@@ -5,6 +5,7 @@
 
 void U_11()
 {
+	FILE *fp;
 	struct stat buf;
 	
 	if((fp =fopen("/etc/syslog.conf", "r")) == NULL){
