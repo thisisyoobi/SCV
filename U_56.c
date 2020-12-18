@@ -6,28 +6,28 @@
 #include <fcntl.h>
 #define BUF_SIZE 1024
 
-/* Á¡°Ë±âÁØ : NIS ¼­ºñ½º ºñÈ°¼ºÈ­
-    ( ¹¹°¡ ºÒÇÊ¿äÇÑÁö ¸ô¶ó¼­ ÀÏ´Ü È°¼ºÈ­µÇ¸é Ãë¾à, ¾øÀ¸¸é ¾çÈ£·Î ±¸ÇöÇÔ )  */
+/* ì ê²€ê¸°ì¤€ : NIS ì„œë¹„ìŠ¤ ë¹„í™œì„±í™”
+    ( ë­ê°€ ë¶ˆí•„ìš”í•œì§€ ëª°ë¼ì„œ ì¼ë‹¨ í™œì„±í™”ë˜ë©´ ì·¨ì•½, ì—†ìœ¼ë©´ ì–‘í˜¸ë¡œ êµ¬í˜„í•¨ )  */
 
 void U_56() {
 	FILE* fp;
 	int n1;
 	char count1[BUF_SIZE];
-	char setting[BUF_SIZE] = "2"; /*( grep°ú system call¿¡ÀÇÇØ¼­ 2°¡ default )*/
+	char setting[BUF_SIZE] = "2"; /*( grepê³¼ system callì—ì˜í•´ì„œ 2ê°€ default )*/
 	int ret1;
 
 	system("ps -ef | grep yp | wc -l > output56.txt");
 
 	if ((fp = fopen("output56.txt", "r")) == NULL) {
-		printf("[U-56] NIS ¼­ºñ½º ºñÈ°¼ºÈ­(Áß) : Á¡°Ë ¿À·ù\n");
+		printf("[U-56] NIS ì„œë¹„ìŠ¤ ë¹„í™œì„±í™”(ì¤‘) : ì ê²€ ì˜¤ë¥˜\n");
 		return;
 	}
 	fgets(count1, sizeof(count1), fp);
 	ret1 = strcmp(count1, setting);
 	if (ret1 == 10)
-		printf("[U-56] NIS ¼­ºñ½º ºñÈ°¼ºÈ­(Áß) : ¾çÈ£\n");
+		printf("[U-56] NIS ì„œë¹„ìŠ¤ ë¹„í™œì„±í™”(ì¤‘) : ì·¨ì•½\n");
 	else
-		printf("[U-56] NIS ¼­ºñ½º ºñÈ°¼ºÈ­(Áß) : Ãë¾à\n");
+		printf("[U-56] NIS ì„œë¹„ìŠ¤ ë¹„í™œì„±í™”(ì¤‘) : ì–‘í˜¸\n");
 
 	system("rm -f output56.txt");
 }
