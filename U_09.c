@@ -5,6 +5,7 @@
 
 void U_09()
 {
+	FILE *fp;
 	struct stat buf;
 	if((fp =fopen("/etc/hosts", "r")) == NULL){
 		printf("[U-09] /etc/host 파일 소유자 및 권한 설정 (상) : 점검 오류\n");
