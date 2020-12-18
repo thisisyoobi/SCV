@@ -3,7 +3,7 @@
 #include <sys/types.h>
 #include <stdlib.h>
 /* $HOME/.rhosts, hosts.equiv 사용 금지 */
-
+// commit change1
 void U_17()
 {
 	FILE *fp, *fp1;
