@@ -5,6 +5,7 @@
 
 void U_07()
 {
+	FILE *fp; //변수 선언
 	struct stat buf;
 	if((fp =fopen("/etc/passwd", "r")) == NULL){
 		printf("[U-07] /etc/passwd 파일 소유자 및 권한 설정 (상) : 점검 오류\n");
