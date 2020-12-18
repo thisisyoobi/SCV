@@ -5,6 +5,7 @@
 
 void U_08()
 {
+	FILE *fp; //변수 선언
 	struct stat buf;
 	if((fp =fopen("/etc/shadow", "r")) == NULL){
 		printf("[U-08] /etc/shadow 파일 소유자 및 권한 설정 (상) : 점검 오류\n");
