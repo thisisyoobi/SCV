@@ -10,7 +10,7 @@ void U_39()
 	FILE* fp;
 
 	if ((fp = fopen("/etc/apache2/apache2.conf", "r")) == NULL) {
-		printf("[U-35] Apache 디레고리 리스팅 제거 : 점검 오류\n");
+		printf("[U-39] Apache 링크 사용금지 : 점검 오류\n");
 	}
 	
 	const int max = 9999;
@@ -22,7 +22,7 @@ void U_39()
 		pLine = fgets(line, max, fp);
 		if(pLine)
 		{
-			if(strstr(pLine, "Options Indexes FollowSymLinks"))
+			if(strstr(pLine, "FollowSymLinks"))
 			{
 				if(strchr(pLine, '#'))
 				{
@@ -36,8 +36,8 @@ void U_39()
 	fclose(fp);
 
 	if(result)
-		printf("[U-35] Apache 디레고리 리스팅 제거 : 양호\n");
+		printf("[U-39] Apache 링크 사용금지 : 양호\n");
 	else
-		printf("[U-35] Apache 디레고리 리스팅 제거 : 취약\n");
+		printf("[U-39] Apache 링크 사용금지 : 취약\n");
 
 }
