@@ -8,7 +8,7 @@ int U_22()
 	FILE *fp;
 	struct stat buf;
 	if((fp =fopen("/var/spool/cron/crontabs/*", "r")) == NULL){
-		printf("[U-22] /var/spool/cron/crontabs/* 파일 소유자 및 권한 설정(상): 점검 오류 (파일 탐색 불가)\n");
+		printf("[U-22] /var/spool/cron/crontabs/* 파일 소유자 및 권한 설정(상) : 점검 오류 (파일 탐색 불가)\n");
 		return 0;
 	}
 	
