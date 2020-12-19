@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void U_30()
+int U_30()
 {
    char buf[512];
    printf("[U-30] Sendmail 버전 점검 (상) : 수동 확인\n");
-   return;
+   return 3;
 
 }
