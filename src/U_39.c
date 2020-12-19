@@ -11,6 +11,7 @@ void U_39()
 
 	if ((fp = fopen("/etc/apache2/apache2.conf", "r")) == NULL) {
 		printf("[U-39] Apache 링크 사용금지 : 점검 오류\n");
+		return 0;
 	}
 	
 	const int max = 9999;
@@ -36,8 +37,14 @@ void U_39()
 	fclose(fp);
 
 	if(result)
+	{
 		printf("[U-39] Apache 링크 사용금지 : 양호\n");
+		return 1;
+	}
 	else
+	{
 		printf("[U-39] Apache 링크 사용금지 : 취약\n");
+		return 2;
+	}
 
 }
