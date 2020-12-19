@@ -4,14 +4,14 @@
 #include <stdlib.h>
 /* 홈디렉토리 소유자 및 권한 설정 */
 
-void U_58()
+int U_58()
 {
 	FILE *fp;
 	char buff[512];
 	struct stat buf;
 	if((fp =fopen("/etc/passwd", "r")) == NULL){
-		printf("[U-58] 홈디렉토리 파일 소유자 및 권한 설정(중): 점검 오류\n");
-		return;
+		printf("[U-58] 홈디렉토리 파일 소유자 및 권한 설정(중): 점검 오류(파일 탐색 불가)\n");
+		return 0;
 	}
 	while(fgets(buff, 512, fp)){
 		int i=0;
@@ -26,12 +26,13 @@ void U_58()
 			if(buf.st_uid == 0){
 				if(buf.st_mode & S_IWOTH && buf.st_mode & S_IWGRP){
 					printf("[U-58] 홈디렉토리 소유자 및 권한 설정 (중) : 취약\n");
-					exit(0);
+					return 2;
 				}
 			}
 		}
 		}
 	printf("[U-58] 홈디렉토리 소유자 및 권한 설정 (중) : 양호\n");
+	return 1;
 }
 
 
