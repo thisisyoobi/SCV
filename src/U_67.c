@@ -20,15 +20,16 @@ int U_67() {
 
    if ((fp = fopen("output67.txt", "r")) == NULL) {
       printf("[U-67] SNMP 서비스 구동 점검(중) : 점검 오류(파일 탐색 불가)\n");
+      system("rm -f output67.txt");
       return 0;
    }
    fgets(count1, sizeof(count1), fp);
    ret1 = strcmp(count1, setting);
+    system("rm -f output67.txt");
    if (ret1 == 10)
       printf("[U-67] SNMP 서비스 구동 점검(중) : 양호\n");
       return 1;
    else
       printf("[U-67] SNMP 서비스 구동 점검(중) : 취약\n");
       return 2;
-   system("rm -f output67.txt");
 }
