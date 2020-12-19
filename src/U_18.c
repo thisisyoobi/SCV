@@ -7,8 +7,6 @@
 #define ALLOW "sshd:192.168.0.148,192.168.0.6"
 #define SUCCESS 2
 
-char *DeleteSpace(char s[]);
-
 void U_18()
 {
 	FILE *deny_fp, *allow_fp;
@@ -39,17 +37,4 @@ void U_18()
 	fclose(allow_fp);
 }
 
-char *DeleteSpace(char s[])
-{
-        char *str = (char *)malloc(strlen(s));
-        int i, j = 0;
-        for(i = 0; i<strlen(s);i++)
-                if(s[i] != ' ') {
-                        str[j] = s[i];
-                        j++;
-                }
-        str[j] = 0;
-
-        return str;
-}
 

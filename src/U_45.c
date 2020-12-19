@@ -10,7 +10,6 @@
 #define GROUP_MODE 2
 
 int FileOpen(char fname[], char s[], int mode);
-char *DeleteSpace(char s[]);
 void U_45()
 {
 	if( FileOpen( "/etc/pam.d/su", PAM_MODULE, PAM_MODE) == FALSE ) {
@@ -50,17 +49,4 @@ int FileOpen(char fname[], char s[], int mode)
 	return check;
 }
 
-char *DeleteSpace(char s[])
-{
-        char *str = (char *)malloc(strlen(s));
-        int i, j = 0;
-        for(i = 0; i<strlen(s);i++) {
-                if(s[i] != ' ') {
-                        str[j] = s[i];
-                        j++;
-                }
-        }
-        str[j] = 0;
 
-        return str;
-}

@@ -10,14 +10,14 @@ void U_05()
 	int check = 0;
 	
 	if( (fp = popen( "echo $PATH", "r" )) == NULL ) {
-		printf("[U-5] root 홈, 패스 디렉터리 권한 및 패스 설정 (상) : 점검 오류\n");
+		printf("[U-05] root 홈, 패스 디렉터리 권한 및 패스 설정 (상) : 점검 오류\n");
 		return;
 	}
 
 	do {
 		c = fgetc(fp);
 		if( c == '.') {
-			printf("[U-5] root 홈, 패스 디렉터리 권한 및 패스 설정 (상) : 취약\n");
+			printf("[U-05] root 홈, 패스 디렉터리 권한 및 패스 설정 (상) : 취약\n");
 			pclose(fp);
 			return;
 		}
@@ -27,12 +27,12 @@ void U_05()
 			check = 0;
 
 		if( check == 2 ) {
-			printf("[U-5] root 홈, 패스 디렉터리 권한 및 패스 설정 (상) : 취약\n");
+			printf("[U-05] root 홈, 패스 디렉터리 권한 및 패스 설정 (상) : 취약\n");
 			pclose(fp);
 			return;
 		}
 	} while( c != EOF );
  
-	printf("[U-5] root 홈, 패스 디렉터리 권한 및 패스 설정 (상) : 양호\n");
+	printf("[U-05] root 홈, 패스 디렉터리 권한 및 패스 설정 (상) : 양호\n");
 	pclose(fp);
 }

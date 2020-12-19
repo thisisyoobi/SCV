@@ -6,7 +6,6 @@
 #define TRUE 1
 #define FALSE 0
 
-int homeDir(char s[], int index);
 void U_59()
 {
 	FILE *fp;
@@ -34,17 +33,4 @@ void U_59()
 	fclose(fp);
 	printf("[U-59] 홈디렉토리로 지정한 디렉토리의 존재 관리 (중) : 양호\n");
 }
-
-int homeDir(char s[], int index)
-{
-	char *home = "/home";
-	int j = 0;
-
-	for( int i=index; i<index+5; i++ ) {
-		if( s[i] != home[j] ) {
-			return FALSE;
-		}
-		j++;
-	}
-	return TRUE;	
-}	
+	

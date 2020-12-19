@@ -18,7 +18,7 @@ void U_04()
 
 	if( (dir_ptr = opendir("/etc")) == NULL ) {
 		printf("[U-04] 패스워드 파일 보호 (상) : 점검 오류\n");
-		return
+		return;
 	}
 	else {
 		while( (direntp = readdir(dir_ptr)) != NULL )
@@ -41,7 +41,7 @@ void U_04()
 			if(buf[i+1] != 'x') {
 				printf("[U-04] 패스워드 파일 보호 (상) : 취약\n");
 				fclose(fp);
-				return
+				return;
 			}	
 		}
 	}
