@@ -8,7 +8,7 @@ int U_55()
 	FILE *fp; //변수 선언
 	struct stat buf;
 	if((fp =fopen("/etc/hosts.lpd", "r")) == NULL){
-		printf("[U-55] hosts.lpd 파일 소유자 및 권한 설정(하): 점검 오류(파일 탐색 불가)\n");
+		printf("[U-55] hosts.lpd 파일 소유자 및 권한 설정(하): 점검 오류 (파일 탐색 불가)\n");
 		return 0;
 	}
 	
