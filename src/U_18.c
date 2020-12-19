@@ -7,7 +7,7 @@
 #define ALLOW "sshd:192.168.0.148,192.168.0.6"
 #define SUCCESS 2
 
-void U_18()
+int U_18()
 {
 	FILE *deny_fp, *allow_fp;
         char buf[LINE];
@@ -16,7 +16,7 @@ void U_18()
         if((deny_fp = fopen("/etc/hosts.deny", "r")) == NULL || 
 			(allow_fp = fopen("/etc/hosts.allow", "r")) == NULL) {
                 printf("[U-18] 접속 IP 및 포트 제한 (상) : 취약\n");
-                return;
+                return 2;
         }
 	
 	while( fgets(buf, LINE, deny_fp) ) {
@@ -28,13 +28,18 @@ void U_18()
                         check++;
         }
 	
-	if( check == SUCCESS )
+	if( check == SUCCESS ) {
 		printf("[U-18] 접속 IP 및 포트 제한 (상) : 양호\n");
-	else
+		fclose(deny_fp);
+		fclose(allow_fp);
+		return 1;
+	}
+	else {
 		printf("[U-18] 접속 IP 및 포트 제한 (상) : 취약\n");
-	
-	fclose(deny_fp);
-	fclose(allow_fp);
+		fclose(deny_fp);
+		fclose(allow_fp);
+		return 2;
+	}
 }
 
 

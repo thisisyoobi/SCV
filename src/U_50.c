@@ -6,15 +6,15 @@
 #define FALSE 0
 
 int checkRoot(char s[], int i);
-void U_50()
+int U_50()
 {
 	FILE* fp;
 	char buf[LINE];
 	int check = 0, i = 0;
 
 	if((fp = fopen("/etc/group", "r")) == NULL) {
-                printf("[U-50] 관리자 그룹에 최소한의 계정 포함 (하) : 점검 오류\n");
-                return;
+                printf("[U-50] 관리자 그룹에 최소한의 계정 포함 (하) : 점검 오류 (파일 탐색 불가)\n");
+                return 0;
         }
 
 	fgets( buf, LINE, fp );
@@ -23,17 +23,28 @@ void U_50()
 			check++;
 		i++;
 	}
-	if( buf[i] == '\n' )
+	if( buf[i] == '\n' ) {
 		printf("[U-50] 관리자 그룹에 최소한의 계정 포함 (하) : 양호\n");
-	else if( checkRoot(buf, i) ) {
-		if( buf[i+4] == '\n' )
-			printf("[U-50] 관리자 그룹에 최소한의 계정 포함 (하) : 양호\n");
-		else
-			printf("[U-50] 관리자 그룹에 최소한의 계정 포함 (하) : 취약\n");	
+		fclose(fp);
+		return 1;
 	}
-	else
+	else if( checkRoot(buf, i) ) {
+		if( buf[i+4] == '\n' ) {
+			printf("[U-50] 관리자 그룹에 최소한의 계정 포함 (하) : 양호\n");
+			fclose(fp);
+			return 1;
+		}
+		else {
+			printf("[U-50] 관리자 그룹에 최소한의 계정 포함 (하) : 취약\n");	
+			fclose(fp);
+			return 2;
+		}
+	}
+	else {
 		printf("[U-50] 관리자 그룹에 최소한의 계정 포함 (하) : 취약\n");
-	fclose(fp);
+		fclose(fp);
+		return 2;
+	}
 }
 
 int checkRoot(char s[], int i)

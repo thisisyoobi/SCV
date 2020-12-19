@@ -9,15 +9,15 @@
 int* UID_list;
 int size = 0;
 int searchUID(int uid);
-void U_52()
+int U_52()
 {
 	FILE* fp;
 	char buf[LINE];
 	
 	UID_list = (int*)malloc(sizeof(int));
 	if((fp = fopen("/etc/group", "r")) == NULL) {
-                printf("[U-52] 동일한 UID 금지 (중) : 점검 오류\n");
-                return;
+                printf("[U-52] 동일한 UID 금지 (중) : 점검 오류 (파일 탐색 불가)\n");
+                return 0;
         }
 	
 	while( fgets(buf, LINE, fp) ) {
@@ -32,7 +32,7 @@ void U_52()
 		if( searchUID(uid) == FALSE ) {
 			printf("[U-52] 동일한 UID 금지 (중) : 취약\n");
 			fclose(fp);
-			return;
+			return 2;
 		}
 
 		UID_list = (int*)realloc(UID_list, sizeof(int)*(++size));
@@ -40,6 +40,7 @@ void U_52()
 	}
 	printf("[U-52] 동일한 UID 금지 (중) : 양호\n");
 	fclose(fp);
+	return 1;
 }
 
 int searchUID(int uid)

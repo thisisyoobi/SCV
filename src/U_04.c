@@ -8,7 +8,7 @@
 #define FALSE 0
 #define LINE 512
 
-void U_04()
+int U_04()
 {
 	FILE *fp;
 	DIR *dir_ptr;
@@ -17,8 +17,8 @@ void U_04()
 	int shadow_check = FALSE;
 
 	if( (dir_ptr = opendir("/etc")) == NULL ) {
-		printf("[U-04] 패스워드 파일 보호 (상) : 점검 오류\n");
-		return;
+		printf("[U-04] 패스워드 파일 보호 (상) : 점검 오류 (파일 탐색 불가)\n");
+		return 0;
 	}
 	else {
 		while( (direntp = readdir(dir_ptr)) != NULL )
@@ -30,8 +30,8 @@ void U_04()
 	}
 
 	if( (fp = fopen("/etc/passwd", "r")) == NULL ) {
-                printf("[U-04] 패스워드 파일 보호 (상) : 점검 오류\n");
-                return;
+                printf("[U-04] 패스워드 파일 보호 (상) : 점검 오류 (파일 탐색 불가)\n");
+                return 0;
         }
 	else {
 		while( fgets(buf, sizeof(buf), fp) ) {
@@ -41,11 +41,12 @@ void U_04()
 			if(buf[i+1] != 'x') {
 				printf("[U-04] 패스워드 파일 보호 (상) : 취약\n");
 				fclose(fp);
-				return;
+				return 2;
 			}	
 		}
 	}
-	if(shadow_check == TRUE)
+	if(shadow_check == TRUE) 
 		printf("[U-04] 패스워드 파일 보호 (상) : 양호\n");
-	fclose(fp);
+	fclose(fp) 1;
+	return 1;
 }

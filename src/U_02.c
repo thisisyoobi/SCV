@@ -4,15 +4,15 @@
 
 
 int STRCMP(char* a, char* b);
-void U_02()
+int U_02()
 {
 	int success = 0;
 	char buf[512];
 	FILE* fp;
 
 	if ((fp = fopen("/etc/security/pwquality.conf", "r")) == NULL) {
-		printf("[U-02] 패스워드 복잡성 설정 (상) : 점검 오류\n");
-		return;
+		printf("[U-02] 패스워드 복잡성 설정 (상) : 점검 오류 (파일 탐색 불가)\n");
+		return 0;
 	}
 
 	while (fgets(buf, sizeof(buf), fp)) {
@@ -30,11 +30,16 @@ void U_02()
 			success++;
 	}
 
-	if (success == 6)
+	if (success == 6) {
 		printf("[U-02] 패스워드 복잡성 설정 (상) : 양호\n");
-	else
+		fclose(fp);
+		return 1;
+	}
+	else {
 		printf("[U-02] 패스워드 복잡성 설정 (상) : 취약\n");
-	fclose(fp);
+		fclose(fp);
+		return 2;
+	}
 }
 
 
