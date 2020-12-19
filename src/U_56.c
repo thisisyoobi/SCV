@@ -9,7 +9,7 @@
 /* 점검기준 : NIS 서비스 비활성화
     ( 뭐가 불필요한지 몰라서 일단 활성화되면 취약, 없으면 양호로 구현함.. )  */
 
-void U_56() {
+int U_56() {
 	FILE* fp;
 	int n1;
 	char count1[BUF_SIZE];
@@ -20,14 +20,18 @@ void U_56() {
 
 	if ((fp = fopen("output56.txt", "r")) == NULL) {
 		printf("[U-56] NIS 서비스 비활성화(중) : 점검 오류\n");
-		return;
+		system("rm -f output56.txt");
+		return 0;
 	}
 	fgets(count1, sizeof(count1), fp);
 	ret1 = strcmp(count1, setting);
-	if (ret1 == 10)
-		printf("[U-56] NIS 서비스 비활성화(중) : 취약\n");
-	else
-		printf("[U-56] NIS 서비스 비활성화(중) : 양호\n");
-
 	system("rm -f output56.txt");
+	if (ret1 == 10){
+		printf("[U-56] NIS 서비스 비활성화(중) : 취약\n");
+		return 2;
+	}
+	else{
+		printf("[U-56] NIS 서비스 비활성화(중) : 양호\n");
+		return 1;
+	}
 }
