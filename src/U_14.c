@@ -4,7 +4,7 @@
 #include <stdlib.h>
 /* 사용자, 시스템 시작파일 및 환경파일 파일 소유자 및 권한 설정 */
 extern int **environ;
-void U_14()
+int U_14()
 {
 	struct stat buf;
 	for(int i=0; environ[i];i++){
@@ -15,14 +15,15 @@ void U_14()
 			if(buf.st_uid == 0){
 				if(buf.st_mode &S_IWGRP || buf.st_mode &S_IWOTH){
 					printf("[U-14] 사용자, 시스템 시작파일 소유자 및 권한 설정 (상) : 취약\n");
-					return;
+					return 2;
 				}
 			}
 			else{
 				printf("[U-14] 사용자, 시스템 시작파일 소유자 및 권한 설정 (상) : 취약\n");
-				return;
+				return 2;
 				}
 			}
 	}
 			printf("[U-14] 사용자, 시스템 시작파일 소유자 및 권한 설정 (상) : 양호\n");
+			return 1;
 }
