@@ -8,7 +8,7 @@ int U_66()
 	FILE *fp;
 	struct stat buf;
 	if((fp =fopen("/etc/cron.d/at.allow", "r")) == NULL){
-		printf("[U-66] at 파일 소유자 및 권한 설정(중): 점검 오류(파일 탐색 불가)\n");
+		printf("[U-66] at 파일 소유자 및 권한 설정(중): 점검 오류 (파일 탐색 불가)\n");
 		return 0;
 	}
 	
