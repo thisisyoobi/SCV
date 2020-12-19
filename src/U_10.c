@@ -23,7 +23,8 @@ int U_10()
 			printf("[U-10] /etc/inetd.conf 파일 소유자 및 권한 설정 (상) : 취약\n");
 			return 2;
 	}
-	else
+	else{
 		printf("[U-10] /etc/inetd.conf 파일 소유자 및 권한 설정 (상) : 취약\n");
 		return 2;
+	}
 }
