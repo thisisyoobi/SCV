@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-void U_72()
+int U_72()
 {
 	int result1 = 0;
 	int result2 = 0;
@@ -12,6 +12,7 @@ void U_72()
 
 	if ((fp = fopen("/etc/apache2/apache2.conf", "r")) == NULL) {
 		printf("[U-72] Apache 웹 서비스 정보 숨김 : 점검 오류\n");
+		return 0;
 	}
 	
 	const int max = 9999;
@@ -46,8 +47,14 @@ void U_72()
 	fclose(fp);
 
 	if(result1 && result2)
+	{
 		printf("[U-72] Apache 웹 서비스 정보 숨김 : 양호\n");
+		return 1;
+	}
 	else
+	{
 		printf("[U-72] Apache 웹 서비스 정보 숨김 : 취약\n");
+		return 0;
+	}
 
 }

@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-void U_36()
+int U_36()
 {
 	int result = 1;
 	int userCheckSum = 1;
@@ -13,6 +13,7 @@ void U_36()
 
 	if ((fp = fopen("/etc/apache2/envvars", "r")) == NULL) {
 		printf("[U-36] Apache 웹 프로세스 권한 제한 : 점검 오류\n");
+		return 0;
 	}
 	
 	const int max = 9999;
@@ -46,8 +47,14 @@ void U_36()
 	fclose(fp);
 
 	if(userCheckSum == 1 && groupCheckSum == 1)
+	{
 		printf("[U-36] Apache 웹 프로세스 권한 제한 : 양호\n");
+		return 1;
+	}
 	else
+	{
 		printf("[U-36] Apache 웹 프로세스 권한 제한 : 취약\n");
+		return 0;
+	}
 
 }

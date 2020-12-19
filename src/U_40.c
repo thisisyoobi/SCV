@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-void U_40()
+int U_40()
 {
 	int result = 0;
 	char buf[512];
@@ -11,6 +11,7 @@ void U_40()
 
 	if ((fp = fopen("/etc/apache2/apache2.conf", "r")) == NULL) {
 		printf("[U-40] Apache 파일 업로드 및 다운로드 제한 : 점검 오류\n");
+		return 0;
 	}
 	
 	const int max = 9999;
@@ -36,8 +37,14 @@ void U_40()
 	fclose(fp);
 
 	if(result)
-		printf("[U-40] Apache 파일 업로드 및 다운로드 제한 : 점검 오류\n");
+	{
+		printf("[U-40] Apache 파일 업로드 및 다운로드 제한 : 양호\n");
+		return 1;
+	}
 	else
-		printf("[U-40] Apache 파일 업로드 및 다운로드 제한 : 점검 오류\n");
+	{
+		printf("[U-40] Apache 파일 업로드 및 다운로드 제한 : 취약\n");
+		return 2;
+	}
 
 }
