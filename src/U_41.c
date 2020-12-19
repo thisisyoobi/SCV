@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-void U_41()
+int U_41()
 {
 	int result = 1;
 	int count = 0;
