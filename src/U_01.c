@@ -11,9 +11,8 @@ int U_01_1()
 	FILE* fp;
 
 	if ((fp = fopen("/etc/securetty", "r")) == NULL) {
-		printf("[U-01] root 계정 원격 접속 제한 (상) : 점검 오류\n");
-		result = 2;
-		return result;
+		printf("[U-01] root 계정 원격 접속 제한 (상) : 점검 오류 (파일 탐색 불가)\n");
+		return 0;
 	}
 	
 	const int max = 9999;
@@ -52,8 +51,8 @@ int U_01_2()
 	FILE* fp;
 
 	if ((fp = fopen("/etc/pam.d/login", "r")) == NULL) {
-		printf("[U-01] root 계정 원격 접속 제한 (상) : 점검 오류\n");
-		result = 2;
+		printf("[U-01] root 계정 원격 접속 제한 (상) : 점검 오류 (파일 탐색 불가)\n");
+		result = 0;
 		return result;
 	}
 	
@@ -96,8 +95,12 @@ void U_01()
 	result1 = U_01_1();
 	result2 = U_01_2();
 
-	if (result1 == 1 && result2 == 1)
+	if (result1 == 1 && result2 == 1){
 		printf("[U-01] root 계정 원격 접속 제한 (상) : 양호\n");
-	else
+		return 1;
+	}
+	else{
 		printf("[U-01] root 계정 원격 접속 제한 (상) : 취약\n");
+		return 2;
+	}
 }
