@@ -3,7 +3,7 @@
 #include <sys/types.h>
 /* hosts.lpd 파일 소유자 및 권한 설정 */
 
-void U_55()
+int U_55()
 {
 	FILE *fp; //변수 선언
 	struct stat buf;
