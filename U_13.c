@@ -28,5 +28,5 @@ void U_13()
 	}
 
 
-	printf("[U-01] root 계정 원격 접속 제한 (상) : 수동 확인\n");
+	printf("[U-13] SUID, SGID, Sticky bit 설정 파일 점검 (상) : 수동 확인\n");
 }
