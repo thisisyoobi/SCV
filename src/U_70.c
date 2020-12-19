@@ -21,7 +21,8 @@ int U_70()
 			printf("[U-70] NFS 설정파일 접근권한 (중) : 취약\n");
 			return 2;
 	}
-	else
+	else{
 		printf("[U-70] NFS 설정파일 접근권한 (중) : 취약\n");
 		return 2;
+	}
 }
