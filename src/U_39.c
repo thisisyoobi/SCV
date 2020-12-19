@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-void U_39()
+int U_39()
 {
 	int result = 1;
 	char buf[512];
