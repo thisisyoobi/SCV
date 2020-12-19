@@ -3,7 +3,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-// check /etc/securetty
 void U_35()
 {
 	int result = 1;
@@ -12,6 +11,7 @@ void U_35()
 
 	if ((fp = fopen("/etc/apache2/apache2.conf", "r")) == NULL) {
 		printf("[U-35] Apache 디렉토리 리스팅 제거 : 점검 오류\n");
+		return 0;
 	}
 	
 	const int max = 9999;
@@ -30,15 +30,20 @@ void U_35()
 					result = 1;
 				}
 				result = 0;
-				break;
 			}
 		}
 	}
 	fclose(fp);
 
 	if(result)
+	{
 		printf("[U-35] Apache 디렉토리 리스팅 제거 : 양호\n");
+		return 1;
+	}
 	else
+	{
 		printf("[U-35] Apache 디렉토리 리스팅 제거 : 취약\n");
+		return 2;
+	}
 
 }
