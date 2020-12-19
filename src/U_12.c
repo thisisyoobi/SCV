@@ -23,8 +23,8 @@ int U_12()
 			return 2;
 		
 	}
-	else
+	else{
 		printf("[U-12] /etc/passwd 파일 소유자 및 권한 설정 (상) : 취약\n");
 		return 2;
-		
+	}
 }
