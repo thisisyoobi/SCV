@@ -41,11 +41,13 @@ int U_17()
 			printf("[U-17] $HOME/.rhosts, hosts.equiv 사용 금지(상) : 양호\n");					
 			return 1;		
 		}
-		else
+		else{
 			printf("[U-17] $HOME/.rhosts, hosts.equiv 사용 금지(상) : 취약\n");
 			return 2;
+		}
 	}
-	else
+	else{
 		printf("[U-17] $HOME/.rhosts, hosts.equiv 사용 금지(상): : 취약\n");	
 		return 2;
+	}
 }
