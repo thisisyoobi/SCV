@@ -19,7 +19,7 @@ int U_57() {
 	if ((fp = fopen("output57.txt", "r")) == NULL) {
 		printf("[U-57] UMASK 설정 관리(중) : 점검 오류 (파일 탐색 불가)\n");
 		system("rm -f output57.txt");
-		return;
+		return 0;
 	}
 	fgets(arr, sizeof(arr), fp);
 	ret = strcmp(arr, setting);

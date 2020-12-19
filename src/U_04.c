@@ -45,8 +45,10 @@ int U_04()
 			}	
 		}
 	}
-	if(shadow_check == TRUE) 
+	if(shadow_check == TRUE)
+	{ 
 		printf("[U-04] 패스워드 파일 보호 (상) : 양호\n");
-	fclose(fp) 1;
-	return 1;
+		return 1;
+	}
+	fclose(fp);
 }
