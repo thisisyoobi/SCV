@@ -9,7 +9,7 @@ int U_10()
 	struct stat buf;
 	
 	if((fp =fopen("/etc/inetd.conf", "r")) == NULL){
-		printf("[U-10] /etc/inetd.conf 파일 소유자 및 권한 설정(상): 점검 오류 (파일 탐색 불가)\n");
+		printf("[U-10] /etc/inetd.conf 파일 소유자 및 권한 설정(상) : 점검 오류 (파일 탐색 불가)\n");
 		return 0;;
 	}
 	
