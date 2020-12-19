@@ -18,11 +18,13 @@ int U_64()
 			printf("[U-64] /etc/ftpusers 파일 소유자 및 권한 설정 (하) : 양호\n");
 			return 1;
 		}
-		else
+		else {
 			printf("[U-22] /etc/ftpusers 파일 소유자 및 권한 설정 (하) : 취약\n");
 			return 2;
+		}
 	}
-	else
+	else {
 		printf("[U-22] /var/spool/cron/crontabs/* 파일 소유자 및 권한 설정 (하) : 취약\n");
 		return 2;
+	}
 }
