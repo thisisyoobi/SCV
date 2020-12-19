@@ -8,7 +8,7 @@ int U_64()
 	FILE *fp;
 	struct stat buf;
 	if((fp =fopen("/etc/ftpusers", "r")) == NULL){
-		printf("[U-64] /etc/ftpusers 파일 소유자 및 권한 설정(하): 점검 오류(파일 탐색 불가)\n");
+		printf("[U-64] /etc/ftpusers 파일 소유자 및 권한 설정(하): 점검 오류 (파일 탐색 불가)\n");
 		return 0;
 	}
 	
