@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-void U_65()
+int U_65()
 {
 	int result = 1;
 	char buf[512];
@@ -11,6 +11,7 @@ void U_65()
 
 	if ((fp = fopen("/etc/ftpusers", "r")) == NULL) {
 		printf("[U-65] ftpusers 파일 설정 : 점검 오류\n");
+		return 0;
 	}
 	
 	const int max = 9999;
@@ -35,8 +36,14 @@ void U_65()
 	fclose(fp);
 
 	if(result)
+	{
 		printf("[U-65] ftpusers 파일 설정 : 양호\n");
+		return 1;
+	}
 	else
+	{
 		printf("[U-65] ftpusers 파일 설정 : 취약\n");
+		return 2;
+	}
 
 }
