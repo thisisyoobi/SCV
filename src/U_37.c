@@ -10,7 +10,7 @@ int U_37()
 	FILE* fp;
 
 	if ((fp = fopen("/etc/apache2/apache2.conf", "r")) == NULL) {
-		printf("[U-37] Apache 상위 디렉토리 접근 금지 : 점검 오류\n");
+		printf("[U-37] Apache 상위 디렉토리 접근 금지 (상) : 점검 오류\n");
 		return 0;
 	}
 	
@@ -38,12 +38,12 @@ int U_37()
 
 	if(result)
 	{
-		printf("[U-37] Apache 상위 디렉토리 접근 금지 : 양호\n");
+		printf("[U-37] Apache 상위 디렉토리 접근 금지 (상) : 양호\n");
 		return 1;
 	}
 	else
 	{
-		printf("[U-37] Apache 상위 디렉토리 접근 금지 : 취약\n");
+		printf("[U-37] Apache 상위 디렉토리 접근 금지 (상) : 취약\n");
 		return 2;
 	}
 

@@ -12,7 +12,7 @@ int U_36()
 	FILE* fp;
 
 	if ((fp = fopen("/etc/apache2/envvars", "r")) == NULL) {
-		printf("[U-36] Apache 웹 프로세스 권한 제한 : 점검 오류\n");
+		printf("[U-36] Apache 웹 프로세스 권한 제한 (상) : 점검 오류\n");
 		return 0;
 	}
 	
@@ -48,12 +48,12 @@ int U_36()
 
 	if(userCheckSum == 1 && groupCheckSum == 1)
 	{
-		printf("[U-36] Apache 웹 프로세스 권한 제한 : 양호\n");
+		printf("[U-36] Apache 웹 프로세스 권한 제한 (상) : 양호\n");
 		return 1;
 	}
 	else
 	{
-		printf("[U-36] Apache 웹 프로세스 권한 제한 : 취약\n");
+		printf("[U-36] Apache 웹 프로세스 권한 제한 (상) : 취약\n");
 		return 0;
 	}
 

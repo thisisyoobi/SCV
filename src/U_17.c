@@ -11,11 +11,11 @@ int U_17()
 	struct stat buf1;
 	char a,b;
 	if((fp =fopen("/etc/hosts.equiv", "r")) == NULL){
-		printf("[U-17] $HOME/.rhosts, hosts.equiv 사용 금지(상): 점검 오류 (파일 탐색 불가)\n");
+		printf("[U-17] $HOME/.rhosts, hosts.equiv 사용 금지(상) : 점검 오류 (파일 탐색 불가)\n");
 		return 0;
 	}
 	if((fp1 =fopen("$HOME/.rhosts", "r")) == NULL){
-		printf("[U-17] $HOME/.rhosts, hosts.equiv 사용 금지(상): 점검 오류 (파일 탐색 불가)\n");
+		printf("[U-17] $HOME/.rhosts, hosts.equiv 사용 금지(상) : 점검 오류 (파일 탐색 불가)\n");
 		return 0;
 	}
 	
@@ -47,7 +47,7 @@ int U_17()
 		}
 	}
 	else{
-		printf("[U-17] $HOME/.rhosts, hosts.equiv 사용 금지(상): : 취약\n");	
+		printf("[U-17] $HOME/.rhosts, hosts.equiv 사용 금지(상) : 취약\n");	
 		return 2;
 	}
 }

@@ -10,7 +10,7 @@ int U_35()
 	FILE* fp;
 
 	if ((fp = fopen("/etc/apache2/apache2.conf", "r")) == NULL) {
-		printf("[U-35] Apache 디렉토리 리스팅 제거 : 점검 오류\n");
+		printf("[U-35] Apache 디렉토리 리스팅 제거 (상) : 점검 오류\n");
 		return 0;
 	}
 	
@@ -37,12 +37,12 @@ int U_35()
 
 	if(result)
 	{
-		printf("[U-35] Apache 디렉토리 리스팅 제거 : 양호\n");
+		printf("[U-35] Apache 디렉토리 리스팅 제거 (상) : 양호\n");
 		return 1;
 	}
 	else
 	{
-		printf("[U-35] Apache 디렉토리 리스팅 제거 : 취약\n");
+		printf("[U-35] Apache 디렉토리 리스팅 제거 (상) : 취약\n");
 		return 2;
 	}
 

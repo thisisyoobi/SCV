@@ -10,7 +10,7 @@ int U_40()
 	FILE* fp;
 
 	if ((fp = fopen("/etc/apache2/apache2.conf", "r")) == NULL) {
-		printf("[U-40] Apache 파일 업로드 및 다운로드 제한 : 점검 오류\n");
+		printf("[U-40] Apache 파일 업로드 및 다운로드 제한 (상) : 점검 오류\n");
 		return 0;
 	}
 	
@@ -38,12 +38,12 @@ int U_40()
 
 	if(result)
 	{
-		printf("[U-40] Apache 파일 업로드 및 다운로드 제한 : 양호\n");
+		printf("[U-40] Apache 파일 업로드 및 다운로드 제한 (상) : 양호\n");
 		return 1;
 	}
 	else
 	{
-		printf("[U-40] Apache 파일 업로드 및 다운로드 제한 : 취약\n");
+		printf("[U-40] Apache 파일 업로드 및 다운로드 제한 (상) : 취약\n");
 		return 2;
 	}
 

@@ -10,7 +10,7 @@ int U_39()
 	FILE* fp;
 
 	if ((fp = fopen("/etc/apache2/apache2.conf", "r")) == NULL) {
-		printf("[U-39] Apache 링크 사용금지 : 점검 오류\n");
+		printf("[U-39] Apache 링크 사용금지 (상) : 점검 오류\n");
 		return 0;
 	}
 	
@@ -38,12 +38,12 @@ int U_39()
 
 	if(result)
 	{
-		printf("[U-39] Apache 링크 사용금지 : 양호\n");
+		printf("[U-39] Apache 링크 사용금지 (상) : 양호\n");
 		return 1;
 	}
 	else
 	{
-		printf("[U-39] Apache 링크 사용금지 : 취약\n");
+		printf("[U-39] Apache 링크 사용금지 (상) : 취약\n");
 		return 2;
 	}
 
