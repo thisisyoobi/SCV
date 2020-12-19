@@ -4,7 +4,7 @@
 #include <string.h>
 
 
-void U_13()
+int U_13()
 {
 	char output[100];
 	FILE *p = popen("find / -perm -4000 2> /dev/null", "r");
@@ -29,4 +29,5 @@ void U_13()
 
 
 	printf("[U-13] SUID, SGID, Sticky bit 설정 파일 점검 (상) : 수동 확인\n");
+	return 3;
 }
