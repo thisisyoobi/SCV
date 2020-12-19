@@ -17,13 +17,13 @@ int U_06()
 		printf("[U-06] 파일 및 디렉터리 소유자 설정 (상) : 취약\n");
 		pclose(nouser_fp);
 		pclose(nogroup_fp);
-		return 1;	
+		return 2;	
 	}
 	else {
 		printf("[U-06] 파일 및 디렉터리 소유자 설정 (상) : 양호\n");
 		pclose(nouser_fp);
 		pclose(nogroup_fp);	
-		return 2;
+		return 1;
 	}
 
 }

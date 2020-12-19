@@ -9,7 +9,7 @@ int U_01_1()
         char buf[512];
         FILE* fp;
 
-        if ((fp = fopen("/etc/securetty1", "r")) == NULL) {
+        if ((fp = fopen("/etc/securetty", "r")) == NULL) {
                 return 2;
         }
 
