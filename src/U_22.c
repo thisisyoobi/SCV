@@ -22,7 +22,8 @@ int U_22()
 			printf("[U-22] /var/spool/cron/crontabs/* 파일 소유자 및 권한 설정 (상) : 취약\n");
 			return 2;
 	}
-	else
+	else{
 		printf("[U-22] /var/spool/cron/crontabs/* 파일 소유자 및 권한 설정 (상) : 취약\n");
 		return 2;
+	}
 }
