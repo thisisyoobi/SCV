@@ -8,7 +8,7 @@ int U_70()
 	FILE *fp; //변수 선언 
 	struct stat buf;
 	if((fp =fopen("/etc/exports", "r")) == NULL){
-		printf("[U-70] NFS 설정파일 접근권한 (중) : 점검 오류(파일 탐색 불가)\n");
+		printf("[U-70] NFS 설정파일 접근권한 (중) : 점검 오류 (파일 탐색 불가)\n");
 		return 0;
 	}
 	stat("/etc/exports", &buf);
