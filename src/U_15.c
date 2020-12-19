@@ -24,6 +24,7 @@ int U_15() {
 	}
 	fgets(count1, sizeof(count1), fp);
 	ret1 = strcmp(count1, setting);
+	system("rm -f output15.txt");
 	if (ret1 == 10){
 		printf("[U-15] world writable 파일 점검(상) : 양호\n");
 		return 1;
@@ -33,6 +34,4 @@ int U_15() {
 		printf("[U-15] world writable 파일 점검(상) : 취약\n");
 		return 2;
 	}
-
-	system("rm -f output15.txt");
 }
