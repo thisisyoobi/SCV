@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-void U_37()
+int U_37()
 {
 	int result = 1;
 	char buf[512];
@@ -11,6 +11,7 @@ void U_37()
 
 	if ((fp = fopen("/etc/apache2/apache2.conf", "r")) == NULL) {
 		printf("[U-37] Apache 상위 디렉토리 접근 금지 : 점검 오류\n");
+		return 0;
 	}
 	
 	const int max = 9999;
@@ -36,8 +37,14 @@ void U_37()
 	fclose(fp);
 
 	if(result)
+	{
 		printf("[U-37] Apache 상위 디렉토리 접근 금지 : 양호\n");
+		return 1;
+	}
 	else
+	{
 		printf("[U-37] Apache 상위 디렉토리 접근 금지 : 취약\n");
+		return 2;
+	}
 
 }
