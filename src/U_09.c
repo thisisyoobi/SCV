@@ -22,7 +22,8 @@ int U_09()
 			printf("[U-09] /etc/host 파일 소유자 및 권한 설정 (상) : 취약\n");
 			return 2;
 	}
-	else
+	else{
 		printf("[U-09] /etc/host 파일 소유자 및 권한 설정 (상) : 취약\n");
 		return 2;
+	}
 }
