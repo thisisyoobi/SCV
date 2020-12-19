@@ -10,7 +10,7 @@ int U_54()
 	char buf[LINE];
 	
 	if((fp =fopen("/etc/profile", "r")) == NULL){
-		printf("[U-54]Session Timeout 설정(하) : 점검 오류(파일 탐색 불가)\n");
+		printf("[U-54]Session Timeout 설정(하) : 점검 오류 (파일 탐색 불가)\n");
 		return 0;
 	}
 	
