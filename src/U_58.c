@@ -10,7 +10,7 @@ int U_58()
 	char buff[512];
 	struct stat buf;
 	if((fp =fopen("/etc/passwd", "r")) == NULL){
-		printf("[U-58] 홈디렉토리 파일 소유자 및 권한 설정(중): 점검 오류(파일 탐색 불가)\n");
+		printf("[U-58] 홈디렉토리 파일 소유자 및 권한 설정(중): 점검 오류 (파일 탐색 불가)\n");
 		return 0;
 	}
 	while(fgets(buff, 512, fp)){
