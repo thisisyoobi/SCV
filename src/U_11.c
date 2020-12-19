@@ -9,7 +9,7 @@ int U_11()
 	struct stat buf;
 	
 	if((fp =fopen("/etc/syslog.conf", "r")) == NULL){
-		printf("[U-11] /etc/syslog.conf 파일 소유자 및 권한 설정(상): 점검 오류(파일 탐색 불가)\n");
+		printf("[U-11] /etc/syslog.conf 파일 소유자 및 권한 설정(상): 점검 오류 (파일 탐색 불가)\n");
 		return 0;
 	}
 	stat("/etc/syslog.conf", &buf);
