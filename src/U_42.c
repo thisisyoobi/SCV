@@ -1,13 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define _CRT_SECURE_NO_WARNINGS
 
 void U_42()
 {
-	char buf[512];
-	FILE* fp;
-	printf("[U-42] ÃÖ½Å º¸¾ÈÆĞÄ¡ ¹× º¥´õ ±Ç°í»çÇ× Àû¿ë (»ó) : ¼öµ¿ È®ÀÎ\n");
-	fclose(fp);
-	return;
+   char buf[512];
+   printf("[U-42] ìµœì‹  ë³´ì•ˆíŒ¨ì¹˜ ë° ë²¤ë” ê¶Œê³ ì‚¬í•­ ì ìš© (ìƒ) : ìˆ˜ë™ í™•ì¸\n");
+   return;
 
 }

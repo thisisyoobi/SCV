@@ -1,14 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define _CRT_SECURE_NO_WARNINGS
 
 void U_30()
 {
-	char buf[512];
-	FILE* fp;
-	printf("[U-30] Sendmail ¹öÀü Á¡°Ë (»ó) : ¼öµ¿ È®ÀÎ\n");
-	fclose(fp);
-	return;
+   char buf[512];
+   printf("[U-30] Sendmail ë²„ì „ ì ê²€ (ìƒ) : ìˆ˜ë™ í™•ì¸\n");
+   return;
 
 }
-

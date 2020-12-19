@@ -1,33 +1,27 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <sys/types.h>
-#include <string.h>
-#include <fcntl.h>
 #define BUF_SIZE 1024
 
-/* Á¡°Ë±âÁØ : /dev¿¡ Á¸ÀçÇÏÁö ¾Ê´Â device ÆÄÀÏ Á¡°Ë 
-			  Á¸ÀçÇÏÁö ¾Ê´Â µğ¹ÙÀÌ½º°¡ "dev" µğ·ºÅä¸®¿¡ ÀÖÀ¸¸é Ãë¾à ¾øÀ¸¸é ¾çÈ£*/
+/* ì ê²€ê¸°ì¤€ : /devì— ì¡´ì¬í•˜ì§€ ì•ŠëŠ” device íŒŒì¼ ì ê²€ 
+           ì¡´ì¬í•˜ì§€ ì•ŠëŠ” ë””ë°”ì´ìŠ¤ê°€ "dev" ë””ë ‰í† ë¦¬ì— ìˆìœ¼ë©´ ì·¨ì•½ ì—†ìœ¼ë©´ ì–‘í˜¸*/
 
 void U_16() {
-	FILE* fp;
-	int n1;
-	char count1[BUF_SIZE];
-	char setting[BUF_SIZE] = "0";
-	int ret1;
+   FILE* fp;
+   int n1;
+   char count1[BUF_SIZE];
+   char setting[BUF_SIZE] = "0";
+   int ret1;
 
-	system("find /dev -type f -exec ls -l {} \\; | wc -l > output16.txt");
+   system("find /dev -type f -exec ls -l {} \\; | wc -l > output16.txt");
 
-	if ((fp = fopen("output16.txt", "r")) == NULL) {
-		printf("[U-16] /dev¿¡ Á¸ÀçÇÏÁö ¾Ê´Â device ÆÄÀÏ Á¡°Ë(»ó) : Á¡°Ë ¿À·ù\n");
-		return;
-	}
-	fgets(count1, sizeof(count1), fp);
-	ret1 = strcmp(count1, setting);
-	if (ret1 == 10)
-		printf("[U-16] /dev¿¡ Á¸ÀçÇÏÁö ¾Ê´Â device ÆÄÀÏ Á¡°Ë(»ó) : ¾çÈ£\n");
-	else
-		printf("[U-16] /dev¿¡ Á¸ÀçÇÏÁö ¾Ê´Â device ÆÄÀÏ Á¡°Ë(»ó) : Ãë¾à\n");
+   if ((fp = fopen("output16.txt", "r")) == NULL) {
+      printf("[U-16] /devì— ì¡´ì¬í•˜ì§€ ì•ŠëŠ” device íŒŒì¼ ì ê²€(ìƒ) : ì ê²€ ì˜¤ë¥˜\n");
+      return;
+   }
+   fgets(count1, sizeof(count1), fp);
+   ret1 = strcmp(count1, setting);
+   if (ret1 == 10)
+      printf("[U-16] /devì— ì¡´ì¬í•˜ì§€ ì•ŠëŠ” device íŒŒì¼ ì ê²€(ìƒ) : ì–‘í˜¸\n");
+   else
+      printf("[U-16] /devì— ì¡´ì¬í•˜ì§€ ì•ŠëŠ” device íŒŒì¼ ì ê²€(ìƒ) : ì·¨ì•½\n");
 
-	system("rm -f output16.txt");
+   system("rm -f output16.txt");
 }

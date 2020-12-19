@@ -1,13 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define _CRT_SECURE_NO_WARNINGS
 
 void U_61()
 {
-	char buf[512];
-	FILE* fp;
-	printf("[U-61] ssh ¿ø°İÁ¢¼Ó Çã¿ë (Áß) : ¼öµ¿ È®ÀÎ\n");
-	fclose(fp);
-	return;
+   char buf[512];
+   printf("[U-61] ssh ì›ê²©ì ‘ì† í—ˆìš© (ì¤‘) : ìˆ˜ë™ í™•ì¸\n");
+   return;
 
 }

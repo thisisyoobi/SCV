@@ -1,13 +1,6 @@
-#include <stdio.h>
-#include <stdlib.h>
-#define _CRT_SECURE_NO_WARNINGS
-
 void U_27()
 {
-	char buf[512];
-	FILE* fp;
-	printf("[U-27] RPC ¼­ºñ½º È®ÀÎ (»ó) : ¼öµ¿ Á¡°Ë\n");
-	fclose(fp);
-	return;
-
+   char buf[512];
+   printf("[U-27] RPC ì„œë¹„ìŠ¤ í™•ì¸ (ìƒ) : ìˆ˜ë™ í™•ì¸\n");
+   return;
 }

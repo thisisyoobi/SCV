@@ -6,28 +6,28 @@
 #include <fcntl.h>
 #define BUF_SIZE 1024
 
-/* Á¡°Ë±âÁØ : SNMP ¼­ºñ½º ±¸µ¿ or ºñ±¸µ¿ Á¡°Ë
-				SNMP ¼­ºñ½º ºñ »ç¿ë½Ã ¾çÈ£, »ç¿ë½Ã Ãë¾à */
+/* ì ê²€ê¸°ì¤€ : SNMP ì„œë¹„ìŠ¤ êµ¬ë™ or ë¹„êµ¬ë™ ì ê²€
+            SNMP ì„œë¹„ìŠ¤ ë¹„ ì‚¬ìš©ì‹œ ì–‘í˜¸, ì‚¬ìš©ì‹œ ì·¨ì•½ */
 
 void U_67() {
-	FILE* fp;
-	int n1;
-	char count1[BUF_SIZE];
-	char setting[BUF_SIZE] = "2"; /*( grep°ú system call¿¡ÀÇÇØ¼­ 2°¡ default )*/
-	int ret1;
+   FILE* fp;
+   int n1;
+   char count1[BUF_SIZE];
+   char setting[BUF_SIZE] = "2"; /*( grepê³¼ system callì—ì˜í•´ì„œ 2ê°€ default )*/
+   int ret1;
 
-	system("ps -ef | grep snmp | wc -l > output67.txt");
+   system("ps -ef | grep snmp | wc -l > output67.txt");
 
-	if ((fp = fopen("output67.txt", "r")) == NULL) {
-		printf("[U-67] SNMP ¼­ºñ½º ±¸µ¿ Á¡°Ë(Áß) : Á¡°Ë ¿À·ù\n");
-		return;
-	}
-	fgets(count1, sizeof(count1), fp);
-	ret1 = strcmp(count1, setting);
-	if (ret1 == 10)
-		printf("[U-67] SNMP ¼­ºñ½º ±¸µ¿ Á¡°Ë(Áß) : ¾çÈ£\n");
-	else
-		printf("[U-67] SNMP ¼­ºñ½º ±¸µ¿ Á¡°Ë(Áß) : Ãë¾à\n");
+   if ((fp = fopen("output67.txt", "r")) == NULL) {
+      printf("[U-67] SNMP ì„œë¹„ìŠ¤ êµ¬ë™ ì ê²€(ì¤‘) : ì ê²€ ì˜¤ë¥˜\n");
+      return;
+   }
+   fgets(count1, sizeof(count1), fp);
+   ret1 = strcmp(count1, setting);
+   if (ret1 == 10)
+      printf("[U-67] SNMP ì„œë¹„ìŠ¤ êµ¬ë™ ì ê²€(ì¤‘) : ì–‘í˜¸\n");
+   else
+      printf("[U-67] SNMP ì„œë¹„ìŠ¤ êµ¬ë™ ì ê²€(ì¤‘) : ì·¨ì•½\n");
 
-	system("rm -f output67.txt");
+   system("rm -f output67.txt");
 }

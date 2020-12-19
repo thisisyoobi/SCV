@@ -1,14 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define _CRT_SECURE_NO_WARNINGS
 
 void U_51()
 {
-	char buf[512];
-	FILE* fp;
-	printf("[U-51] °èÁ¤ÀÌ Á¸ÀçÇÏÁö ¾Ê´Â GID ±İÁö : ¼öµ¿ È®ÀÎ\n");
-	fclose(fp);
-	
-	return;
+   char buf[512];
+   printf("[U-51] ê³„ì •ì´ ì¡´ì¬í•˜ì§€ ì•ŠëŠ” GID ê¸ˆì§€ : ìˆ˜ë™ í™•ì¸\n");
+   
+   return;
 
 }

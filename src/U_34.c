@@ -1,13 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define _CRT_SECURE_NO_WARNINGS
+
 
 void U_34()
 {
-	char buf[512];
-	FILE* fp;
-	printf("[U-34] DNS Zone Transfer ¼³Á¤ (»ó) : ¼öµ¿ È®ÀÎ\n");
-	fclose(fp);
-	return;
+   char buf[512];
+   printf("[U-34] DNS Zone Transfer ì„¤ì • (ìƒ) : ìˆ˜ë™ í™•ì¸\n");
+   return;
 
 }

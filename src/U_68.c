@@ -1,12 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define _CRT_SECURE_NO_WARNINGS
 
 void U_68()
 {
-	char buf[512];
-	FILE* fp;
-	printf("[U-68] SNMP ¼­ºñ½º Community StringÀÇ º¹Àâ¼º ¼³Á¤ (Áß) : ¼öµ¿ È®ÀÎ\n");
-	fclose(fp);
-	return;
+   char buf[512];
+   printf("[U-68] SNMP ì„œë¹„ìŠ¤ Community Stringì˜ ë³µì¡ì„± ì„¤ì • (ì¤‘) : ìˆ˜ë™ í™•ì¸\n");
+   return;
 }

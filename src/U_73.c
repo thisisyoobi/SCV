@@ -1,12 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define _CRT_SECURE_NO_WARNINGS
 
 void U_73()
 {
-	char buf[512];
-	FILE* fp;
-	printf("[U-73] а╓ц╔©║ ╣Ш╦╔ ╫ц╫╨еш ╥н╠К ╪Ёа╓ (го) : ╪Ж╣© х╝юн\n");
-	fclose(fp);
-	return;
+   char buf[512];
+   printf("[U-73] Л═∙Л╠┘Л≈░ К■╟К╔╦ Л▀°Л┼╓М┘° К║°Й╧┘ Л└╓Л═∙ (М∙≤) : Л┬≤К▐≥ М≥∙Л²╦\n");
+   return;
 }

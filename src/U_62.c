@@ -6,39 +6,39 @@
 #include <fcntl.h>
 #define BUF_SIZE 1024
 
-/* Á¡°Ë±âÁØ : FTP ¼­ºñ½º°¡ È°¼ºÈ­ µÇ¾îÀÖ´ÂÁö Á¡°Ë 
-				ÀÏ¹İ ftp¼­ºñ½º , vsftpd or ProFtp¼­ºñ½º È°¼ºÈ­½Ã Ãë¾à, ºñÈ°¼ºÈ­½Ã ¾çÈ£*/
+/* ì ê²€ê¸°ì¤€ : FTP ì„œë¹„ìŠ¤ê°€ í™œì„±í™” ë˜ì–´ìˆëŠ”ì§€ ì ê²€ 
+            ì¼ë°˜ ftpì„œë¹„ìŠ¤ , vsftpd or ProFtpì„œë¹„ìŠ¤ í™œì„±í™”ì‹œ ì·¨ì•½, ë¹„í™œì„±í™”ì‹œ ì–‘í˜¸*/
 
 void U_62() {
-	FILE* fp1, * fp2;
-	int n1, n2;
-	char count1[BUF_SIZE], count2[BUF_SIZE];
-	char checkarr[BUF_SIZE] = "2";  /*( grep°ú system call¿¡ÀÇÇØ¼­ 2°¡ default )*/
-	int ret1, ret2;
+   FILE* fp1, * fp2;
+   int n1, n2;
+   char count1[BUF_SIZE], count2[BUF_SIZE];
+   char checkarr[BUF_SIZE] = "2";  /*( grepê³¼ system callì—ì˜í•´ì„œ 2ê°€ default )*/
+   int ret1, ret2;
 
-	system("ps -ef | grep ftp | wc -l > output62_1.txt");
-	system("ps -ef | egrep \"vsftpd|proftp\" | wc -l > output62_2.txt");
-	if ((fp1 = fopen("output62_1.txt", "r")) == NULL) {
-		printf("[U-62] ftp ¼­ºñ½º È®ÀÎ(ÇÏ) : Á¡°Ë ¿À·ù\n");
-		return;
-	}
-	if ((fp2 = fopen("output62_2.txt", "r")) == NULL) {
-		printf("[U-62] ftp ¼­ºñ½º È®ÀÎ(ÇÏ) : Á¡°Ë ¿À·ù\n");
-		return;
-	}
+   system("ps -ef | grep ftp | wc -l > output62_1.txt");
+   system("ps -ef | egrep \"vsftpd|proftp\" | wc -l > output62_2.txt");
+   if ((fp1 = fopen("output62_1.txt", "r")) == NULL) {
+      printf("[U-62] ftp ì„œë¹„ìŠ¤ í™•ì¸(í•˜) : ì ê²€ ì˜¤ë¥˜\n");
+      return;
+   }
+   if ((fp2 = fopen("output62_2.txt", "r")) == NULL) {
+      printf("[U-62] ftp ì„œë¹„ìŠ¤ í™•ì¸(í•˜) : ì ê²€ ì˜¤ë¥˜\n");
+      return;
+   }
 
-	fgets(count1, sizeof(count1), fp1);
-	fgets(count2, sizeof(count2), fp2);
+   fgets(count1, sizeof(count1), fp1);
+   fgets(count2, sizeof(count2), fp2);
 
-	ret1 = strcmp(count1, checkarr);
-	ret2 = strcmp(count2, checkarr);
+   ret1 = strcmp(count1, checkarr);
+   ret2 = strcmp(count2, checkarr);
 
-	if (ret1 == 10 && ret2 == 10)
-		printf("[U-62] ftp ¼­ºñ½º È®ÀÎ(ÇÏ) : ¾çÈ£\n");
-	else
-		printf("[U-62] ftp ¼­ºñ½º È®ÀÎ(ÇÏ) : Ãë¾à\n");
+   if (ret1 == 10 && ret2 == 10)
+      printf("[U-62] ftp ì„œë¹„ìŠ¤ í™•ì¸(í•˜) : ì–‘í˜¸\n");
+   else
+      printf("[U-62] ftp ì„œë¹„ìŠ¤ í™•ì¸(í•˜) : ì·¨ì•½\n");
 
-	system("rm -f output62_1.txt");
-	system("rm -f output62_2.txt");
+   system("rm -f output62_1.txt");
+   system("rm -f output62_2.txt");
 
 }

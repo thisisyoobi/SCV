@@ -40,6 +40,7 @@ void U_63() {
 		else
 			printf("[U-63] ftp 계정 shell 제한(중) : 양호\n");
 
+		system("rm -f output63_1.txt");
 		system("rm -f output63_2.txt");
 	}
 }

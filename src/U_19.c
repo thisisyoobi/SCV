@@ -6,42 +6,42 @@
 #include <fcntl.h>
 #define BUF_SIZE 1024
 
-/* Á¡°Ë±âÁØ : Finger ¼­ºñ½º ºñÈ°¼ºÈ­
-				Finger ¼­ºñ½º È°¼ºÈ­½Ã Ãë¾à, ºñÈ°¼ºÈ­½Ã ¾çÈ£ */
+/* ì ê²€ê¸°ì¤€ : Finger ì„œë¹„ìŠ¤ ë¹„í™œì„±í™”
+            Finger ì„œë¹„ìŠ¤ í™œì„±í™”ì‹œ ì·¨ì•½, ë¹„í™œì„±í™”ì‹œ ì–‘í˜¸ */
 
 void U_19() {
-	FILE* fp1, * fp2;
-	char arr[BUF_SIZE];
-	char setting[BUF_SIZE] = "0";
-	int ret;
-	system("ls -alL /etc/xinetd.d/* 2> /dev/null| wc -l > output19_1.txt");
-	if ((fp1 = fopen("output19_1.txt", "r")) == NULL) {
-		printf("[U-19] Finger ¼­ºñ½º ºñÈ°¼ºÈ­(»ó) : Á¡°Ë ¿À·ù\n");
-		return;
-	}
-	fgets(arr, sizeof(arr), fp1);
-	ret = strcmp(arr, setting);
-	// output19_1ÀÇ °á°ú°¡ 0ÀÌ¸é xinetd.d°¡ ¼³Ä¡µÇÁö ¾ÊÀº°Í, Á¡°Ë¿À·ù  
-	if (ret == 10) {
-		printf("[U-19] Finger ¼­ºñ½º ºñÈ°¼ºÈ­(»ó) : Á¡°Ë ¿À·ù\n"); // xinetd.d ¼³Ä¡ ÇÊ¿ä ( sudo apt-get install xinetd.d ) 
-		system("rm -f output19_1.txt");
-		return;
-	}
-	else {
-		system("ls -alL /etc/xinetd.d/* | egrep \"echo finger\" | wc -l > output19_2.txt");
-		// °á°ú°¡ 0ÀÌ¸é ÀÛµ¿ÁßÀÌ ¾Æ´Ñ°Í = > ¾çÈ£ 0ÀÌ¾Æ´Ï¸é ÀÛµ¿Áß, Ãë¾à
-		if ((fp2 = fopen("output19_2.txt", "r")) == NULL) {
-			printf("[U-19] Finger ¼­ºñ½º ºñÈ°¼ºÈ­(»ó) : Á¡°Ë ¿À·ù\n");
-			return;
-		}
-		fgets(arr, sizeof(arr), fp2);
-		ret = strcmp(arr, setting);
-		if (ret == 10)
-			printf("[U-19] Finger ¼­ºñ½º ºñÈ°¼ºÈ­(»ó) : ¾çÈ£\n");
-		else
-			printf("[U-19] Finger ¼­ºñ½º ºñÈ°¼ºÈ­(»ó) : Ãë¾à\n");
+   FILE* fp1, * fp2;
+   char arr[BUF_SIZE];
+   char setting[BUF_SIZE] = "0";
+   int ret;
+   system("ls -alL /etc/xinetd.d/* 2> /dev/null| wc -l > output19_1.txt");
+   if ((fp1 = fopen("output19_1.txt", "r")) == NULL) {
+      printf("[U-19] Finger ì„œë¹„ìŠ¤ ë¹„í™œì„±í™”(ìƒ) : ì ê²€ ì˜¤ë¥˜\n");
+      return;
+   }
+   fgets(arr, sizeof(arr), fp1);
+   ret = strcmp(arr, setting);
+   // output19_1ì˜ ê²°ê³¼ê°€ 0ì´ë©´ xinetd.dê°€ ì„¤ì¹˜ë˜ì§€ ì•Šì€ê²ƒ, ì ê²€ì˜¤ë¥˜  
+   if (ret == 10) {
+      printf("[U-19] Finger ì„œë¹„ìŠ¤ ë¹„í™œì„±í™”(ìƒ) : ì ê²€ ì˜¤ë¥˜\n"); // xinetd.d ì„¤ì¹˜ í•„ìš” ( sudo apt-get install xinetd.d ) 
+      system("rm -f output19_1.txt");
+      return;
+   }
+   else {
+      system("ls -alL /etc/xinetd.d/* | egrep \"echo finger\" | wc -l > output19_2.txt");
+      // ê²°ê³¼ê°€ 0ì´ë©´ ì‘ë™ì¤‘ì´ ì•„ë‹Œê²ƒ = > ì–‘í˜¸ 0ì´ì•„ë‹ˆë©´ ì‘ë™ì¤‘, ì·¨ì•½
+      if ((fp2 = fopen("output19_2.txt", "r")) == NULL) {
+         printf("[U-19] Finger ì„œë¹„ìŠ¤ ë¹„í™œì„±í™”(ìƒ) : ì ê²€ ì˜¤ë¥˜\n");
+         return;
+      }
+      fgets(arr, sizeof(arr), fp2);
+      ret = strcmp(arr, setting);
+      if (ret == 10)
+         printf("[U-19] Finger ì„œë¹„ìŠ¤ ë¹„í™œì„±í™”(ìƒ) : ì–‘í˜¸\n");
+      else
+         printf("[U-19] Finger ì„œë¹„ìŠ¤ ë¹„í™œì„±í™”(ìƒ) : ì·¨ì•½\n");
 
-		system("rm -f output19_1.txt");
-		system("rm -f output19_2.txt");
-	}
+      system("rm -f output19_1.txt");
+      system("rm -f output19_2.txt");
+   }
 }

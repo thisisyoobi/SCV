@@ -1,13 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define _CRT_SECURE_NO_WARNINGS
 
 void U_32()
 {
-	char buf[512];
-	FILE* fp;
-	printf("[U-32] ÀÏ¹İ»ç¿ëÀÚÀÇ Sendmail ½ÇÇà ¹æÁö (»ó) : ¼öµ¿ È®ÀÎ\n");
-	fclose(fp);
-	return;
+   char buf[512];
+   printf("[U-32] ì¼ë°˜ì‚¬ìš©ìì˜ Sendmail ì‹¤í–‰ ë°©ì§€ (ìƒ) : ìˆ˜ë™ í™•ì¸\n");
+
+   return;
 
 }

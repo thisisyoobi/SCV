@@ -6,29 +6,29 @@
 #include <fcntl.h>
 #define BUF_SIZE 1024
 
-/* Á¡°Ë ±âÁØ : NFS ¼­ºñ½º ºñÈ°¼ºÈ­ 
-				NFS ¼­ºñ½º µ¥¸óÀÌ È°¼ºÈ­µÇ¸é Ãë¾à, ºñÈ°¼ºÈ­½Ã ¾çÈ£*/
+/* ì ê²€ ê¸°ì¤€ : NFS ì„œë¹„ìŠ¤ ë¹„í™œì„±í™” 
+            NFS ì„œë¹„ìŠ¤ ë°ëª¬ì´ í™œì„±í™”ë˜ë©´ ì·¨ì•½, ë¹„í™œì„±í™”ì‹œ ì–‘í˜¸*/
 
 void U_24() {
-	FILE* fp;
-	int n1;
-	char count1[BUF_SIZE];
-	char setting[BUF_SIZE] = "2"; /*( grep°ú system call¿¡ÀÇÇØ¼­ 2°¡ default )*/
-	int ret1;
+   FILE* fp;
+   int n1;
+   char count1[BUF_SIZE];
+   char setting[BUF_SIZE] = "2"; /*( grepê³¼ system callì—ì˜í•´ì„œ 2ê°€ default )*/
+   int ret1;
 
-	system("ps -ef | egrep \"nfs|statd|lockd\" | wc -l > output24.txt");
+   system("ps -ef | egrep \"nfs|statd|lockd\" | wc -l > output24.txt");
 
-	if ((fp = fopen("output24.txt", "r")) == NULL) {
-		printf("[U-24] NFS ¼­ºñ½º ºñÈ°¼ºÈ­(»ó) : Á¡°Ë ¿À·ù\n");
-		return;
-	}
-	fgets(count1, sizeof(count1), fp);
-	ret1 = strcmp(count1, setting);
-	if (ret1 == 10)
-		printf("[U-24] NFS ¼­ºñ½º ºñÈ°¼ºÈ­(»ó) : ¾çÈ£\n");
-	else
-		printf("[U-24] NFS ¼­ºñ½º ºñÈ°¼ºÈ­(»ó) : ¾çÈ£\n");
+   if ((fp = fopen("output24.txt", "r")) == NULL) {
+      printf("[U-24] NFS ì„œë¹„ìŠ¤ ë¹„í™œì„±í™”(ìƒ) : ì ê²€ ì˜¤ë¥˜\n");
+      return;
+   }
+   fgets(count1, sizeof(count1), fp);
+   ret1 = strcmp(count1, setting);
+   if (ret1 == 10)
+      printf("[U-24] NFS ì„œë¹„ìŠ¤ ë¹„í™œì„±í™”(ìƒ) : ì–‘í˜¸\n");
+   else
+      printf("[U-24] NFS ì„œë¹„ìŠ¤ ë¹„í™œì„±í™”(ìƒ) : ì–‘í˜¸\n");
 
-	system("rm -f output24.txt");
+   system("rm -f output24.txt");
 }
 

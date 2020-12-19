@@ -6,28 +6,28 @@
 #include <fcntl.h>
 #define BUF_SIZE 1024
 
-/* Á¡°Ë±âÁØ : NFS Access control 
-				/etc/exports ÆÄÀÏÁ¸Àç½Ã Ãë¾à, ¾øÀ¸¸é ¾çÈ£ */
+/* ì ê²€ê¸°ì¤€ : NFS Access control 
+            /etc/exports íŒŒì¼ì¡´ì¬ì‹œ ì·¨ì•½, ì—†ìœ¼ë©´ ì–‘í˜¸ */
 
 void U_25() {
-	FILE* fp;
-	int n1;
-	char count1[BUF_SIZE];
-	char setting[BUF_SIZE] = "0";
-	int ret1;
+   FILE* fp;
+   int n1;
+   char count1[BUF_SIZE];
+   char setting[BUF_SIZE] = "0";
+   int ret1;
 
-	system("ls -l /etc | grep exports | wc -l > output25.txt");
+   system("ls -l /etc | grep exports | wc -l > output25.txt");
 
-	if ((fp = fopen("output25.txt", "r")) == NULL) {
-		printf("[U-25] NFS Á¢±Ù ÅëÁ¦(»ó) : Á¡°Ë ¿À·ù\n");
-		return;
-	}
-	fgets(count1, sizeof(count1), fp);
-	ret1 = strcmp(count1, setting);
-	if (ret1 == 10)
-		printf("[U-25] NFS Á¢±Ù ÅëÁ¦(»ó) : ¾çÈ£\n");
-	else
-		printf("[U-25] NFS Á¢±Ù ÅëÁ¦(»ó) : Ãë¾à\n");
+   if ((fp = fopen("output25.txt", "r")) == NULL) {
+      printf("[U-25] NFS ì ‘ê·¼ í†µì œ(ìƒ) : ì ê²€ ì˜¤ë¥˜\n");
+      return;
+   }
+   fgets(count1, sizeof(count1), fp);
+   ret1 = strcmp(count1, setting);
+   if (ret1 == 10)
+      printf("[U-25] NFS ì ‘ê·¼ í†µì œ(ìƒ) : ì–‘í˜¸\n");
+   else
+      printf("[U-25] NFS ì ‘ê·¼ í†µì œ(ìƒ) : ì·¨ì•½\n");
 
-	system("rm -f output25.txt");
+   system("rm -f output25.txt");
 }

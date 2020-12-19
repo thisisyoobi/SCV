@@ -6,28 +6,28 @@
 #include <fcntl.h>
 #define BUF_SIZE 1024
 
-/* Á¡°Ë±âÁØ : Anonymous FTP ºñÈ°¼ºÈ­ Á¡°Ë 
-			 "passwd" ÆÄÀÏ¿¡¼­ ftp°èÁ¤ÀÌ Á¸ÀçÇÏ¸é Ãë¾à, ¾øÀ¸¸é ¾çÈ£ */
+/* ì ê²€ê¸°ì¤€ : Anonymous FTP ë¹„í™œì„±í™” ì ê²€ 
+          "passwd" íŒŒì¼ì—ì„œ ftpê³„ì •ì´ ì¡´ì¬í•˜ë©´ ì·¨ì•½, ì—†ìœ¼ë©´ ì–‘í˜¸ */
 
 void U_20() {
-	FILE* fp;
-	int n1;
-	char count1[BUF_SIZE];
-	char setting[BUF_SIZE] = "0";
-	int ret1;
+   FILE* fp;
+   int n1;
+   char count1[BUF_SIZE];
+   char setting[BUF_SIZE] = "0";
+   int ret1;
 
-	system("cat /etc/passwd | grep \"ftp\" | wc -l > output20.txt");
+   system("cat /etc/passwd | grep \"ftp\" | wc -l > output20.txt");
 
-	if ((fp = fopen("output20.txt", "r")) == NULL) {
-		printf("[U-20] Anonymous FTP ºñÈ°¼ºÈ­(»ó) : Á¡°Ë ¿À·ù\n");
-		return;
-	}
-	fgets(count1, sizeof(count1), fp);
-	ret1 = strcmp(count1, setting);
-	if (ret1 == 10)
-		printf("[U-20] Anonymous FTP ºñÈ°¼ºÈ­(»ó) : ¾çÈ£\n");
-	else
-		printf("[U-20] Anonymous FTP ºñÈ°¼ºÈ­(»ó) : Ãë¾à\n");
+   if ((fp = fopen("output20.txt", "r")) == NULL) {
+      printf("[U-20] Anonymous FTP ë¹„í™œì„±í™”(ìƒ) : ì ê²€ ì˜¤ë¥˜\n");
+      return;
+   }
+   fgets(count1, sizeof(count1), fp);
+   ret1 = strcmp(count1, setting);
+   if (ret1 == 10)
+      printf("[U-20] Anonymous FTP ë¹„í™œì„±í™”(ìƒ) : ì–‘í˜¸\n");
+   else
+      printf("[U-20] Anonymous FTP ë¹„í™œì„±í™”(ìƒ) : ì·¨ì•½\n");
 
-	system("rm -f output20.txt");
+   system("rm -f output20.txt");
 }

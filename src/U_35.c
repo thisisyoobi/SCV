@@ -11,7 +11,7 @@ void U_35()
 	FILE* fp;
 
 	if ((fp = fopen("/etc/apache2/apache2.conf", "r")) == NULL) {
-		printf("[U-35] Apache 디레고리 리스팅 제거 : 점검 오류\n");
+		printf("[U-35] Apache 디렉토리 리스팅 제거 : 점검 오류\n");
 	}
 	
 	const int max = 9999;
@@ -37,8 +37,8 @@ void U_35()
 	fclose(fp);
 
 	if(result)
-		printf("[U-35] Apache 디레고리 리스팅 제거 : 양호\n");
+		printf("[U-35] Apache 디렉토리 리스팅 제거 : 양호\n");
 	else
-		printf("[U-35] Apache 디레고리 리스팅 제거 : 취약\n");
+		printf("[U-35] Apache 디렉토리 리스팅 제거 : 취약\n");
 
 }

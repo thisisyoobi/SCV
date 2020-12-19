@@ -6,28 +6,28 @@
 #include <fcntl.h>
 #define BUF_SIZE 1024
 
-/* Á¡°Ë±âÁØ : automountd ¼­ºñ½º µ¥¸óÀÇ ½ÇÇà ¿©ºÎ Á¡°Ë 
-				automountd ¼­ºñ½º È°¼ºÈ­½Ã Ãë¾à, ºñÈ°¼ºÈ­½Ã ¾çÈ£ */
+/* ì ê²€ê¸°ì¤€ : automountd ì„œë¹„ìŠ¤ ë°ëª¬ì˜ ì‹¤í–‰ ì—¬ë¶€ ì ê²€ 
+            automountd ì„œë¹„ìŠ¤ í™œì„±í™”ì‹œ ì·¨ì•½, ë¹„í™œì„±í™”ì‹œ ì–‘í˜¸ */
 
 void U_26() {
-	FILE* fp;
-	int n1;
-	char count1[BUF_SIZE];
-	char setting[BUF_SIZE] = "2"; /*( grep°ú system call¿¡ÀÇÇØ¼­ 2°¡ default )*/
-	int ret1;
+   FILE* fp;
+   int n1;
+   char count1[BUF_SIZE];
+   char setting[BUF_SIZE] = "2"; /*( grepê³¼ system callì—ì˜í•´ì„œ 2ê°€ default )*/
+   int ret1;
 
-	system("ps -ef | grep automount | wc -l > output26.txt");
+   system("ps -ef | grep automount | wc -l > output26.txt");
 
-	if ((fp = fopen("output26.txt", "r")) == NULL) {
-		printf("[U-26] automountd Á¦°Å(»ó) : Á¡°Ë ¿À·ù\n");
-		return;
-	}
-	fgets(count1, sizeof(count1), fp);
-	ret1 = strcmp(count1, setting);
-	if (ret1 == 10)
-		printf("[U-26] automountd Á¦°Å(»ó) : ¾çÈ£\n");
-	else
-		printf("[U-26] automountd Á¦°Å(»ó) : Ãë¾à\n");
+   if ((fp = fopen("output26.txt", "r")) == NULL) {
+      printf("[U-26] automountd ì œê±°(ìƒ) : ì ê²€ ì˜¤ë¥˜\n");
+      return;
+   }
+   fgets(count1, sizeof(count1), fp);
+   ret1 = strcmp(count1, setting);
+   if (ret1 == 10)
+      printf("[U-26] automountd ì œê±°(ìƒ) : ì–‘í˜¸\n");
+   else
+      printf("[U-26] automountd ì œê±°(ìƒ) : ì·¨ì•½\n");
 
-	system("rm -f output26.txt");
+   system("rm -f output26.txt");
 }

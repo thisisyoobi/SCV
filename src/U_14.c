@@ -15,12 +15,12 @@ void U_14()
 			if(buf.st_uid == 0){
 				if(buf.st_mode &S_IWGRP || buf.st_mode &S_IWOTH){
 					printf("[U-14] 사용자, 시스템 시작파일 소유자 및 권한 설정 (상) : 취약\n");
-				exit(0);
+					return;
 				}
 			}
 			else{
 				printf("[U-14] 사용자, 시스템 시작파일 소유자 및 권한 설정 (상) : 취약\n");
-				exit(0);
+				return;
 				}
 			}
 	}

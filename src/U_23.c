@@ -6,115 +6,115 @@
 #include <fcntl.h>
 #define BUF_SIZE 1024
 
-/* Á¡°Ë±âÁØ : Dos °ø°İ¿¡ Ãë¾àÇÑ ¼­ºñ½º ºñÈ°¼ºÈ­
-				/etc/xinetd.d/ dir ³»¿¡¼­ echo,discard, daytiem, chargen ÆÄÀÏ¿¡¼­
-				disable = yes·Î ¼³Á¤µÇ¾îÀÖÀ¸¸é ¾çÈ£, ±×·¸Áö¾ÊÀ¸¸é Ãë¾à  */
+/* ì ê²€ê¸°ì¤€ : Dos ê³µê²©ì— ì·¨ì•½í•œ ì„œë¹„ìŠ¤ ë¹„í™œì„±í™”
+            /etc/xinetd.d/ dir ë‚´ì—ì„œ echo,discard, daytiem, chargen íŒŒì¼ì—ì„œ
+            disable = yesë¡œ ì„¤ì •ë˜ì–´ìˆìœ¼ë©´ ì–‘í˜¸, ê·¸ë ‡ì§€ì•Šìœ¼ë©´ ì·¨ì•½  */
 
 void U_23() {
-	FILE* fp1, * fp2;
-	char arr[BUF_SIZE];
-	char setting[BUF_SIZE] = "0";
-	char setting2[BUF_SIZE] = "2";
-	int count = 0;
-	int ret;
-	system("ls -alL /etc/xinetd.d/* 2> /dev/null| wc -l > output23_0.txt");
-	if ((fp1 = fopen("output23_0.txt", "r")) == NULL) {
-		printf("[U-23] DoS °ø°İ¿¡ Ãë¾àÇÑ ¼­ºñ½º ºñÈ°¼ºÈ­(»ó) : Á¡°Ë ¿À·ù\n");
-		return;
-	}
-	fgets(arr, sizeof(arr), fp1);
-	ret = strcmp(arr, "0");
-	// output23_0ÀÇ °á°ú°¡ 0ÀÌ¸é xinetd.d°¡ ¼³Ä¡µÇÁö ¾ÊÀº°Í, Á¡°Ë¿À·ù  
-	if (ret == 10) {
-		printf("[U-23] DoS °ø°İ¿¡ Ãë¾àÇÑ ¼­ºñ½º ºñÈ°¼ºÈ­(»ó) : Á¡°Ë ¿À·ù\n"); // xinetd.d ¼³Ä¡ ÇÊ¿ä ( sudo apt-get install xinetd.d ) 
-		system("rm -f output23_0.txt");
-		return;
-	}
-	else {
-		//echo 
-		system("cat -T /etc/xinetd.d/echo > output23_1.txt");
-		system("grep -r \'disable^I^I= yes\' output23_1.txt | wc -l > output23_1_2.txt");
-		// °á°ú°¡ 2ÀÌ¸é yes·Î ¼³Á¤µÇ¾îÀÖ´Â°Í  = > ¾çÈ£ 2°¡ ¾Æ´Ï¸é yes·Î ¼³Á¤µÇ¾îÀÖÁö ¾Ê´Â°Í, Ãë¾à
-		if ((fp2 = fopen("output23_1_2.txt", "r")) == NULL) {
-			printf("[U-23] DoS °ø°İ¿¡ Ãë¾àÇÑ ¼­ºñ½º ºñÈ°¼ºÈ­(»ó) : Á¡°Ë ¿À·ù\n");
-			return;
-		}
-		fgets(arr, sizeof(arr), fp2);
-		ret = strcmp(arr, setting2);
-		if (ret == 10)
-			count++;
-		else {
-			printf("[U-23] DoS °ø°İ¿¡ Ãë¾àÇÑ ¼­ºñ½º ºñÈ°¼ºÈ­(»ó) : Ãë¾à\n");
-			return;
-		}
+   FILE* fp1, * fp2;
+   char arr[BUF_SIZE];
+   char setting[BUF_SIZE] = "0";
+   char setting2[BUF_SIZE] = "2";
+   int count = 0;
+   int ret;
+   system("ls -alL /etc/xinetd.d/* 2> /dev/null| wc -l > output23_0.txt");
+   if ((fp1 = fopen("output23_0.txt", "r")) == NULL) {
+      printf("[U-23] DoS ê³µê²©ì— ì·¨ì•½í•œ ì„œë¹„ìŠ¤ ë¹„í™œì„±í™”(ìƒ) : ì ê²€ ì˜¤ë¥˜\n");
+      return;
+   }
+   fgets(arr, sizeof(arr), fp1);
+   ret = strcmp(arr, "0");
+   // output23_0ì˜ ê²°ê³¼ê°€ 0ì´ë©´ xinetd.dê°€ ì„¤ì¹˜ë˜ì§€ ì•Šì€ê²ƒ, ì ê²€ì˜¤ë¥˜  
+   if (ret == 10) {
+      printf("[U-23] DoS ê³µê²©ì— ì·¨ì•½í•œ ì„œë¹„ìŠ¤ ë¹„í™œì„±í™”(ìƒ) : ì ê²€ ì˜¤ë¥˜\n"); // xinetd.d ì„¤ì¹˜ í•„ìš” ( sudo apt-get install xinetd.d ) 
+      system("rm -f output23_0.txt");
+      return;
+   }
+   else {
+      //echo 
+      system("cat -T /etc/xinetd.d/echo > output23_1.txt");
+      system("grep -r \'disable^I^I= yes\' output23_1.txt | wc -l > output23_1_2.txt");
+      // ê²°ê³¼ê°€ 2ì´ë©´ yesë¡œ ì„¤ì •ë˜ì–´ìˆëŠ”ê²ƒ  = > ì–‘í˜¸ 2ê°€ ì•„ë‹ˆë©´ yesë¡œ ì„¤ì •ë˜ì–´ìˆì§€ ì•ŠëŠ”ê²ƒ, ì·¨ì•½
+      if ((fp2 = fopen("output23_1_2.txt", "r")) == NULL) {
+         printf("[U-23] DoS ê³µê²©ì— ì·¨ì•½í•œ ì„œë¹„ìŠ¤ ë¹„í™œì„±í™”(ìƒ) : ì ê²€ ì˜¤ë¥˜\n");
+         return;
+      }
+      fgets(arr, sizeof(arr), fp2);
+      ret = strcmp(arr, setting2);
+      if (ret == 10)
+         count++;
+      else {
+         printf("[U-23] DoS ê³µê²©ì— ì·¨ì•½í•œ ì„œë¹„ìŠ¤ ë¹„í™œì„±í™”(ìƒ) : ì·¨ì•½\n");
+         return;
+      }
 
-		system("rm -f output23_1.txt");
-		system("rm -f output23_1_2.txt");
+      system("rm -f output23_1.txt");
+      system("rm -f output23_1_2.txt");
 
-		//discard
-		system("cat -T /etc/xinetd.d/discard > output23_1.txt");
-		system("grep -r \'disable^I^I= yes\' output23_1.txt | wc -l > output23_1_2.txt");
-		// °á°ú°¡ 2ÀÌ¸é yes·Î ¼³Á¤µÇ¾îÀÖ´Â°Í  = > ¾çÈ£ 2°¡ ¾Æ´Ï¸é yes·Î ¼³Á¤µÇ¾îÀÖÁö ¾Ê´Â°Í, Ãë¾à
-		if ((fp2 = fopen("output23_1_2.txt", "r")) == NULL) {
-			printf("[U-23] DoS °ø°İ¿¡ Ãë¾àÇÑ ¼­ºñ½º ºñÈ°¼ºÈ­(»ó) : Á¡°Ë ¿À·ù\n");
-			return;
-		}
-		fgets(arr, sizeof(arr), fp2);
-		ret = strcmp(arr, setting2);
-		if (ret == 10)
-			count++;
-		else {
-			printf("[U-23] DoS °ø°İ¿¡ Ãë¾àÇÑ ¼­ºñ½º ºñÈ°¼ºÈ­(»ó) : Ãë¾à\n");
-			return;
-		}
+      //discard
+      system("cat -T /etc/xinetd.d/discard > output23_1.txt");
+      system("grep -r \'disable^I^I= yes\' output23_1.txt | wc -l > output23_1_2.txt");
+      // ê²°ê³¼ê°€ 2ì´ë©´ yesë¡œ ì„¤ì •ë˜ì–´ìˆëŠ”ê²ƒ  = > ì–‘í˜¸ 2ê°€ ì•„ë‹ˆë©´ yesë¡œ ì„¤ì •ë˜ì–´ìˆì§€ ì•ŠëŠ”ê²ƒ, ì·¨ì•½
+      if ((fp2 = fopen("output23_1_2.txt", "r")) == NULL) {
+         printf("[U-23] DoS ê³µê²©ì— ì·¨ì•½í•œ ì„œë¹„ìŠ¤ ë¹„í™œì„±í™”(ìƒ) : ì ê²€ ì˜¤ë¥˜\n");
+         return;
+      }
+      fgets(arr, sizeof(arr), fp2);
+      ret = strcmp(arr, setting2);
+      if (ret == 10)
+         count++;
+      else {
+         printf("[U-23] DoS ê³µê²©ì— ì·¨ì•½í•œ ì„œë¹„ìŠ¤ ë¹„í™œì„±í™”(ìƒ) : ì·¨ì•½\n");
+         return;
+      }
 
-		system("rm -f output23_1.txt");
-		system("rm -f output23_1_2.txt");
+      system("rm -f output23_1.txt");
+      system("rm -f output23_1_2.txt");
 
-		//daytime
-		system("cat -T /etc/xinetd.d/daytime > output23_1.txt");
-		system("grep -r \'disable^I^I= yes\' output23_1.txt | wc -l > output23_1_2.txt");
-		// °á°ú°¡ 2ÀÌ¸é yes·Î ¼³Á¤µÇ¾îÀÖ´Â°Í  = > ¾çÈ£ 2°¡ ¾Æ´Ï¸é yes·Î ¼³Á¤µÇ¾îÀÖÁö ¾Ê´Â°Í, Ãë¾à
-		if ((fp2 = fopen("output23_1_2.txt", "r")) == NULL) {
-			printf("[U-23] DoS °ø°İ¿¡ Ãë¾àÇÑ ¼­ºñ½º ºñÈ°¼ºÈ­(»ó) : Á¡°Ë ¿À·ù\n");
-			return;
-		}
-		fgets(arr, sizeof(arr), fp2);
-		ret = strcmp(arr, setting2);
-		if (ret == 10)
-			count++;
-		else {
-			printf("[U-23] DoS °ø°İ¿¡ Ãë¾àÇÑ ¼­ºñ½º ºñÈ°¼ºÈ­(»ó) : Ãë¾à\n");
-			return;
-		}
+      //daytime
+      system("cat -T /etc/xinetd.d/daytime > output23_1.txt");
+      system("grep -r \'disable^I^I= yes\' output23_1.txt | wc -l > output23_1_2.txt");
+      // ê²°ê³¼ê°€ 2ì´ë©´ yesë¡œ ì„¤ì •ë˜ì–´ìˆëŠ”ê²ƒ  = > ì–‘í˜¸ 2ê°€ ì•„ë‹ˆë©´ yesë¡œ ì„¤ì •ë˜ì–´ìˆì§€ ì•ŠëŠ”ê²ƒ, ì·¨ì•½
+      if ((fp2 = fopen("output23_1_2.txt", "r")) == NULL) {
+         printf("[U-23] DoS ê³µê²©ì— ì·¨ì•½í•œ ì„œë¹„ìŠ¤ ë¹„í™œì„±í™”(ìƒ) : ì ê²€ ì˜¤ë¥˜\n");
+         return;
+      }
+      fgets(arr, sizeof(arr), fp2);
+      ret = strcmp(arr, setting2);
+      if (ret == 10)
+         count++;
+      else {
+         printf("[U-23] DoS ê³µê²©ì— ì·¨ì•½í•œ ì„œë¹„ìŠ¤ ë¹„í™œì„±í™”(ìƒ) : ì·¨ì•½\n");
+         return;
+      }
 
-		system("rm -f output23_1.txt");
-		system("rm -f output23_1_2.txt");
+      system("rm -f output23_1.txt");
+      system("rm -f output23_1_2.txt");
 
-		//chargen
-		system("cat -T /etc/xinetd.d/chargen > output23_1.txt");
-		system("grep -r \'disable^I^I= yes\' output23_1.txt | wc -l > output23_1_2.txt");
-		// °á°ú°¡ 2ÀÌ¸é yes·Î ¼³Á¤µÇ¾îÀÖ´Â°Í  = > ¾çÈ£ 2°¡ ¾Æ´Ï¸é yes·Î ¼³Á¤µÇ¾îÀÖÁö ¾Ê´Â°Í, Ãë¾à
-		if ((fp2 = fopen("output23_1_2.txt", "r")) == NULL) {
-			printf("[U-23] DoS °ø°İ¿¡ Ãë¾àÇÑ ¼­ºñ½º ºñÈ°¼ºÈ­(»ó) : Á¡°Ë ¿À·ù\n");
-			return;
-		}
-		fgets(arr, sizeof(arr), fp2);
-		ret = strcmp(arr, setting2);
-		if (ret == 10)
-			count++;
-		else {
-			printf("[U-23] DoS °ø°İ¿¡ Ãë¾àÇÑ ¼­ºñ½º ºñÈ°¼ºÈ­(»ó) : Ãë¾à\n");
-			return;
-		}
+      //chargen
+      system("cat -T /etc/xinetd.d/chargen > output23_1.txt");
+      system("grep -r \'disable^I^I= yes\' output23_1.txt | wc -l > output23_1_2.txt");
+      // ê²°ê³¼ê°€ 2ì´ë©´ yesë¡œ ì„¤ì •ë˜ì–´ìˆëŠ”ê²ƒ  = > ì–‘í˜¸ 2ê°€ ì•„ë‹ˆë©´ yesë¡œ ì„¤ì •ë˜ì–´ìˆì§€ ì•ŠëŠ”ê²ƒ, ì·¨ì•½
+      if ((fp2 = fopen("output23_1_2.txt", "r")) == NULL) {
+         printf("[U-23] DoS ê³µê²©ì— ì·¨ì•½í•œ ì„œë¹„ìŠ¤ ë¹„í™œì„±í™”(ìƒ) : ì ê²€ ì˜¤ë¥˜\n");
+         return;
+      }
+      fgets(arr, sizeof(arr), fp2);
+      ret = strcmp(arr, setting2);
+      if (ret == 10)
+         count++;
+      else {
+         printf("[U-23] DoS ê³µê²©ì— ì·¨ì•½í•œ ì„œë¹„ìŠ¤ ë¹„í™œì„±í™”(ìƒ) : ì·¨ì•½\n");
+         return;
+      }
 
-		system("rm -f output23_0.txt");
-		system("rm -f output23_1.txt");
-		system("rm -f output23_1_2.txt");
+      system("rm -f output23_0.txt");
+      system("rm -f output23_1.txt");
+      system("rm -f output23_1_2.txt");
 
-		if (count == 4)
-			printf("[U-23] DoS °ø°İ¿¡ Ãë¾àÇÑ ¼­ºñ½º ºñÈ°¼ºÈ­(»ó) : ¾çÈ£\n");
-		else
-			printf("[U-23] DoS °ø°İ¿¡ Ãë¾àÇÑ ¼­ºñ½º ºñÈ°¼ºÈ­(»ó) : Ãë¾à\n");
-	}
+      if (count == 4)
+         printf("[U-23] DoS ê³µê²©ì— ì·¨ì•½í•œ ì„œë¹„ìŠ¤ ë¹„í™œì„±í™”(ìƒ) : ì–‘í˜¸\n");
+      else
+         printf("[U-23] DoS ê³µê²©ì— ì·¨ì•½í•œ ì„œë¹„ìŠ¤ ë¹„í™œì„±í™”(ìƒ) : ì·¨ì•½\n");
+   }
 }

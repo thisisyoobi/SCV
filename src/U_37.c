@@ -38,6 +38,6 @@ void U_37()
 	if(result)
 		printf("[U-37] Apache 상위 디렉토리 접근 금지 : 양호\n");
 	else
-		printf("[U-35] Apache 상위 디렉토리 접근 금지 : 취약\n");
+		printf("[U-37] Apache 상위 디렉토리 접근 금지 : 취약\n");
 
 }

@@ -1,13 +1,6 @@
-#include <stdio.h>
-#include <stdlib.h>
-#define _CRT_SECURE_NO_WARNINGS
-
 void U_29()
 {
-	char buf[512];
-	FILE* fp;
-	printf("[U-29] tftp, talk ¼­ºñ½º ºñÈ°¼ºÈ­ (»ó) : ¼öµ¿ È®ÀÎ\n");
-	fclose(fp);
-	return;
-
+   char buf[512];
+   printf("[U-29] tftp, talk ì„œë¹„ìŠ¤ ë¹„í™œì„±í™” (ìƒ) : ìˆ˜ë™ í™•ì¸\n");
+   return;
 }

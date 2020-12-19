@@ -1,13 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define _CRT_SECURE_NO_WARNINGS
 
 void U_33()
 {
-	char buf[512];
-	FILE* fp;
-	printf("[U-33] DNS º¸¾È ¹öÀü ÆĞÄ¡ (»ó) : ¼öµ¿ È®ÀÎ\n");
-	fclose(fp);
-	return;
+   char buf[512];
+   printf("[U-33] DNS ë³´ì•ˆ ë²„ì „ íŒ¨ì¹˜ (ìƒ) : ìˆ˜ë™ í™•ì¸\n");
+   return;
 
 }
