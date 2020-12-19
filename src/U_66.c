@@ -18,11 +18,13 @@ int U_66()
 			printf("[U-66] at 파일 소유자 및 권한 설정 (중) : 양호\n");
 			return 1;
 		}
-		else
+		else {
 			printf("[U-66] at 파일 소유자 및 권한 설정 (중) : 취약\n");
 			return 2;
+		}
 	}
-	else
+	else {
 		printf("[U-66] at 파일 소유자 및 권한 설정 (중) : 취약\n");
 		return 2;
+	}
 }
