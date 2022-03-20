@@ -7,7 +7,7 @@
 조장 : 유병일
 조원 : 기우석 김동규 전근민
 
-발표영상 : hhttps://www.youtube.com/watch?v=SKutvRRwOv8
+발표영상 : https://www.youtube.com/watch?v=SKutvRRwOv8
 
 <img width="599" alt="image" src="https://user-images.githubusercontent.com/75841024/159189806-d4d857fa-3934-435a-a8a5-fa6186de67a5.png">
 <img width="803" alt="image" src="https://user-images.githubusercontent.com/75841024/159189814-c116940b-b618-4aba-8927-64f5abd213d8.png">
