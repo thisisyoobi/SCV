@@ -5,6 +5,7 @@
 - 주요정보통신기반시설 기술적 취약점 분석 평가 상세 가이드 기준
 
 조장 : 유병일
+
 조원 : 기우석 김동규 전근민
 
 발표영상 : https://www.youtube.com/watch?v=SKutvRRwOv8
